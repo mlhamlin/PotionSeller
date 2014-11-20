@@ -13,17 +13,17 @@ public class Ingredient : MonoBehaviour {
         intl += amt;
     }
 
-    public void IncreaseIntl(int amt)
+    public void IncreaseStr(int amt)
     {
         str += amt;
     }
 
-    public void IncreaseIntl(int amt)
+    public void IncreaseDex(int amt)
     {
         dex += amt;
     }
 
-    public void IncreaseIntl(int amt)
+    public void IncreaseCha(int amt)
     {
         cha += amt;
     }
