@@ -16,6 +16,16 @@ public class StatBlock
 		dex += addDex;
 	}
 
+	public void addValues (Ingredient ing)
+	{
+		addValues (ing.str, ing.cha, ing.intl, ing.dex);
+	}
+
+	public void removeValues (Ingredient ing)
+	{
+		addValues (-ing.str, -ing.cha, -ing.intl, -ing.dex);
+	}
+
 	public bool meetsRequirement (int checkStr, int checkCha, int checkIntl, int checkDex)
 	{
 		return ((checkStr <= str) && (checkCha <= cha) && (checkIntl <= intl) && (checkDex <= dex));
