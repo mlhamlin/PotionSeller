@@ -49,6 +49,7 @@ public class IngredientGenerator : UnitySingleton<IngredientGenerator> {
         int ingrtype = Random.Range(0, Mathf.Min(names.Count, sprites.Length));
         name += names[ingrtype];
         newIngredient.ingrname = name;
+        newIngredient.GetComponent<SpriteRenderer>().sprite = sprites[ingrtype];
         newIngredient.IncreaseStat(primarystat, primevalue);
         newIngredient.IncreaseStat(secondarystat, secondvalue);
         newIngredient.ColorByStats();
