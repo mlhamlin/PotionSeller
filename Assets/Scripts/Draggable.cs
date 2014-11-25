@@ -15,7 +15,7 @@ public class Draggable : MonoBehaviour {
 	}
 
 	public void OnMouseDrag() {
-		Vector2 cursorPosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+		Vector3 cursorPosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 		gameObject.transform.position = cursorPosition;
 	}
 	public void OnMouseUp() {
