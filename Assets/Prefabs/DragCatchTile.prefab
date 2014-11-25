@@ -27,7 +27,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: .0799999982, y: .0799999982}
+  m_Size: {x: 1, y: 1}
   m_Center: {x: 0, y: 0}
 --- !u!114 &11400000
 MonoBehaviour:
@@ -46,6 +46,7 @@ MonoBehaviour:
   overflow: {fileID: 0}
   OneIngredientType: 0
   allowed: {fileID: 0}
+  count: {fileID: 0}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -66,7 +67,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d3ec363bf23df4018976bc250a5c9f79, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cb8bad73d8e34fe46a74e27acc4f21bd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!224 &22400000
 RectTransform:
@@ -76,13 +77,13 @@ RectTransform:
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 8, y: 8, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: .960873067, y: 1.90364695}
+  m_AnchoredPosition: {x: 3.67000008, y: 2.26999998}
   m_SizeDelta: {x: .0799999982, y: .0799999982}
   m_Pivot: {x: .5, y: .5}
 --- !u!1001 &100100000
