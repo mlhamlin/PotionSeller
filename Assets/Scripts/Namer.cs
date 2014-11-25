@@ -18,7 +18,7 @@ public class Namer : UnitySingleton<Namer> {
     
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         basenames = new List<List<string>>();
         strnames = new List<List<string>>();
