@@ -80,4 +80,9 @@ public class StatBlock
 	{
 		return "str = " + str + " cha = " + cha + "\nintl = " + intl + " dex = " + dex;
 	}
+
+	public int getStatSum()
+	{
+		return str + cha + intl + dex;
+	}
 }

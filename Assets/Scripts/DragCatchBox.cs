@@ -84,4 +84,9 @@ public class DragCatchBox : MonoBehaviour {
 			count.text = holding.Count.ToString();
 		}
 	}
+
+	public void ForgetItAll()
+	{
+		holding.Clear();
+	}
 }

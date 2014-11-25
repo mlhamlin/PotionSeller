@@ -8,7 +8,7 @@ public class SnapDraggable : Draggable {
 	public DragCatchBox homeBox;
 	public DragCatchBox current;
 		
-	public void OnTriggerEnter2D(Collider2D other) {
+	new public void OnTriggerEnter2D(Collider2D other) {
 		DragCatchBox box = other.GetComponent<DragCatchBox>();
 		if (box != null)
 		{
@@ -16,7 +16,7 @@ public class SnapDraggable : Draggable {
 		}
 	}
 
-	public void OnTriggerExit2D(Collider2D other) {
+	new public void OnTriggerExit2D(Collider2D other) {
 		DragCatchBox box = other.GetComponent<DragCatchBox>();
 		if (box != null)
 		{
@@ -24,7 +24,7 @@ public class SnapDraggable : Draggable {
 		}		
 	}
 		
-	public void OnMouseDrag() {
+	new public void OnMouseDrag() {
 		Vector2 cursorPosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 		gameObject.transform.position = cursorPosition;
 		if (current != null)
@@ -34,7 +34,7 @@ public class SnapDraggable : Draggable {
 		}
 	}
 		
-	public void OnMouseUp() {
+	new public void OnMouseUp() {
 
 		if (boxes.Count > 0) {
 			Vector2 pos = gameObject.transform.position;

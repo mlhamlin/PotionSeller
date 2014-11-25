@@ -10,6 +10,7 @@ public class Cauldron : UnitySingleton<Cauldron> {
 	const int MAX_INGREDIENTS = 9;
 	public DragCatchBox[] boxes;
 	public Text statsText;
+	public Text valueText;
 
 	// Use this for initialization
 	void Start () {
@@ -22,7 +23,7 @@ public class Cauldron : UnitySingleton<Cauldron> {
 			box.dragRemoved += attemptRemoveIngredient;
 		}
 
-		UpdateStatsTextUI();
+		UpdateUI();
 	}
 	
 	// Update is called once per frame
@@ -46,7 +47,7 @@ public class Cauldron : UnitySingleton<Cauldron> {
 			ingredients.Add(ing);
 			allTheStats.addValues(ing);
 			allTheStats.debugStats();
-			UpdateStatsTextUI();
+			UpdateUI();
 			return true;
 		}
 
@@ -69,26 +70,50 @@ public class Cauldron : UnitySingleton<Cauldron> {
 			ingredients.Remove(ing);
 			allTheStats.removeValues(ing);
 			allTheStats.debugStats();
-			UpdateStatsTextUI();
+			UpdateUI();
 			return true;
 		}
 
 		return false;
 	}
 
-	public Potion craft()
+	public void craft()
 	{
-		ingredients.Clear ();
-		Debug.LogError ("craft not yet implemented");
-		return null;
+		//TODO: Improve this
+		PlayerInfo.Instance.addGold(DummyGoldReward());
+		foreach (Ingredient ing in ingredients)
+		{
+			DestroyObject(ing.gameObject);
+		}
+
+		foreach (DragCatchBox box in boxes)
+		{
+			box.ForgetItAll();
+		}
 	}
 
-	public void UpdateStatsTextUI()
+	public void UpdateUI()
 	{
 		if (statsText != null)
 		{
 			statsText.text = allTheStats.getText();
 		}
+
+		if (valueText != null)
+		{
+			valueText.text = "Value: " + DummyGoldReward();
+		}
+	}
+
+	//This does stuff, attempts to reward more for better ingredient use and better sum.
+	public int DummyGoldReward()
+	{
+		if (ingredients.Count > 0)
+		{
+			return Mathf.Max (0, (allTheStats.getStatSum() / ingredients.Count) * allTheStats.getStatSum());
+		}
+
+		return 0;
 	}
 	
 }
