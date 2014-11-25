@@ -47,11 +47,13 @@ public class Namer : UnitySingleton<Namer> {
                     state = STATE_INGREDIENT;
                 if (s.Contains("LEVEL"))
                 {
-                    level = Convert.ToInt32(s.Substring(s.Length - 2));
+                    print(s.Substring(s.Length - 1));
+                    print(s);
+                    level = Convert.ToInt32(s.Substring(s.Length - 1));
                 }
                 if (s.Contains("ATTRIBUTE"))
                 {
-                    string attribute = s.Substring(s.IndexOf(':')+1, s.Length-s.IndexOf(':')-2);
+                    string attribute = s.Substring(s.IndexOf(':')+1, s.Length-s.IndexOf(':')-1);
                     switch (attribute)
                     {
                         case "STRENGTH":
