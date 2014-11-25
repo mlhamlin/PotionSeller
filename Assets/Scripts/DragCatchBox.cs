@@ -11,6 +11,11 @@ public class DragCatchBox : MonoBehaviour {
 	public bool OneIngredientType;
 	public Ingredient allowed;
 
+	public delegate void DraggableAdded(SnapDraggable drag);
+	public DraggableAdded dragAdded;
+	public delegate void DraggableRemoved(SnapDraggable drag);
+	public DraggableRemoved dragRemoved;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -21,9 +26,9 @@ public class DragCatchBox : MonoBehaviour {
 	
 	}
 
+	//Item is attempting to enter the box
 	public void CatchMe(SnapDraggable drag)
 	{
-		Debug.Log("Catch Me");
 		if (OneIngredientType)
 		{
 			Ingredient dragIng = drag.GetComponent<Ingredient>();
@@ -37,9 +42,7 @@ public class DragCatchBox : MonoBehaviour {
 
 		if (!onlyOne || (holding.Count < 1))
 		{
-			holding.Add(drag);
-			drag.gameObject.transform.position = gameObject.transform.position;
-			drag.IHaveYou(this);
+			ItsTrueLove(drag);
 		} else if (overflow != null){
 			overflow.CatchMe(drag);
 		} else {
@@ -47,8 +50,25 @@ public class DragCatchBox : MonoBehaviour {
 		}
 	}
 
+	//Item is leaving the box
 	public void ByeNow(SnapDraggable drag)
 	{
 		holding.Remove(drag);
+		if (dragRemoved != null)
+		{
+			dragRemoved(drag);
+		}
+	}
+
+	//Item is really being added to this box
+	public void ItsTrueLove(SnapDraggable drag)
+	{
+		holding.Add(drag);
+		drag.gameObject.transform.position = gameObject.transform.position;
+		drag.IHaveYou(this);
+		if (dragAdded != null)
+		{
+			dragAdded(drag);
+		}
 	}
 }

@@ -70,4 +70,9 @@ public class StatBlock
 	{
 		return dex;
 	}
+
+	public void debugStats()
+	{
+		Debug.Log("Statblock stats: str = " + str + " cha = " + cha + " intl = " + intl + " dex = " + dex);
+	}
 }

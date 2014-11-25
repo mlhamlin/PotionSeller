@@ -25,7 +25,6 @@ public class SnapDraggable : Draggable {
 	}
 		
 	public void OnMouseDrag() {
-		Debug.Log("Dragging");
 		Vector2 cursorPosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 		gameObject.transform.position = cursorPosition;
 		if (current != null)
@@ -59,11 +58,13 @@ public class SnapDraggable : Draggable {
 			GoHome();
 		}
 	}
-		
+
+	//Throws draggable back to home box
 	public void GoHome() {
 		homeBox.CatchMe(this);
 	}
 
+	//Allows DragCatchBox to inform SnapDraggable which box ended up with it
 	public void IHaveYou(DragCatchBox box)
 	{
 		current = box;

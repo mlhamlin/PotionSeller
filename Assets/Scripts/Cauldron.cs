@@ -4,21 +4,35 @@ using System.Collections.Generic;
 
 public class Cauldron : UnitySingleton<Cauldron> {
 
-	List<Ingredient> ingredients; //will be ingredient class
-	StatBlock allTheStats;
+	public List<Ingredient> ingredients; //will be ingredient class
+	public StatBlock allTheStats;
 	const int MAX_INGREDIENTS = 9;
-	DragCatchBox[] boxes;
-
+	public DragCatchBox[] boxes;
 
 	// Use this for initialization
 	void Start () {
 		allTheStats = new StatBlock ();
 		ingredients = new List<Ingredient> ();
+
+		foreach (DragCatchBox box in boxes)
+		{
+			box.dragAdded += attemptAddIngredient;
+			box.dragRemoved += attemptRemoveIngredient;
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		
+	}
+
+	public void attemptAddIngredient(SnapDraggable drag)
+	{
+		Ingredient ing = drag.GetComponent<Ingredient>();
+		if (ing != null)
+		{
+			addIngredient(ing);
+		}
 	}
 
 	public bool addIngredient(Ingredient ing)
@@ -27,19 +41,29 @@ public class Cauldron : UnitySingleton<Cauldron> {
 		{
 			ingredients.Add(ing);
 			allTheStats.addValues(ing);
+			allTheStats.debugStats();
 			return true;
 		}
 
 		return false;
 	}
 
+	public void attemptRemoveIngredient(SnapDraggable drag)
+	{
+		Ingredient ing = drag.GetComponent<Ingredient>();
+		if (ing != null)
+		{
+			removeIngredient(ing);
+		}
+	}
+	
 	public bool removeIngredient(Ingredient ing)
 	{
 		if (ingredients.Contains (ing)) 
 		{
 			ingredients.Remove(ing);
 			allTheStats.removeValues(ing);
-			// TODO: Add back to storage???
+			allTheStats.debugStats();
 			return true;
 		}
 
@@ -52,4 +76,5 @@ public class Cauldron : UnitySingleton<Cauldron> {
 		Debug.LogError ("craft not yet implemented");
 		return null;
 	}
+	
 }
