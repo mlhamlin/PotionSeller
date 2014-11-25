@@ -68,7 +68,9 @@ public class DragCatchBox : MonoBehaviour {
 	public void ItsTrueLove(SnapDraggable drag)
 	{
 		holding.Add(drag);
-		drag.gameObject.transform.position = gameObject.transform.position;
+		Vector3 goHere = gameObject.transform.position;
+		goHere.z = drag.gameObject.transform.position.z;
+		drag.gameObject.transform.position = goHere;
 		drag.IHaveYou(this);
 		if (dragAdded != null)
 		{

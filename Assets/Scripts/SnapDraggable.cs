@@ -25,7 +25,8 @@ public class SnapDraggable : Draggable {
 	}
 		
 	new public void OnMouseDrag() {
-		Vector2 cursorPosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+		Vector3 cursorPosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+		cursorPosition.z = gameObject.transform.position.z;
 		gameObject.transform.position = cursorPosition;
 		if (current != null)
 		{
@@ -37,13 +38,13 @@ public class SnapDraggable : Draggable {
 	new public void OnMouseUp() {
 
 		if (boxes.Count > 0) {
-			Vector2 pos = gameObject.transform.position;
-			Vector2 BoxPos = boxes[0].transform.position;
+			Vector3 pos = gameObject.transform.position;
+			Vector3 BoxPos = boxes[0].transform.position;
 			DragCatchBox fave = boxes[0];
 			//manhattan distance
 			float dist = Mathf.Abs(pos.x - BoxPos.x) + Mathf.Abs(pos.y - BoxPos.y);
 			for (int i = 1; i < boxes.Count; i += 1) {
-				Vector2 BoxPos2 = boxes[i].transform.position;
+				Vector3 BoxPos2 = boxes[i].transform.position;
 				float dist2 = Mathf.Abs(pos.x - BoxPos2.x) + Mathf.Abs(pos.y - BoxPos2.y);
 				if (dist2 < dist) {
 					dist = dist2;
