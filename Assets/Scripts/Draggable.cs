@@ -20,12 +20,12 @@ public class Draggable : MonoBehaviour {
 	}
 	public void OnMouseUp() {
 		if (colliders.Count > 0) {
-			Vector2 pos = gameObject.transform.position;
-			Vector2 colliderPos = colliders[0].transform.position;
+			Vector3 pos = gameObject.transform.position;
+			Vector3 colliderPos = colliders[0].transform.position;
 			//manhattan distance
 			float dist = Mathf.Abs(pos.x - colliderPos.x) + Mathf.Abs(pos.y - colliderPos.y);
 			for (int i = 1; i < colliders.Count; i += 1) {
-				Vector2 colliderPos2 = colliders[i].transform.position;
+				Vector3 colliderPos2 = colliders[i].transform.position;
 				float dist2 = Mathf.Abs(pos.x - colliderPos2.x) + Mathf.Abs(pos.y - colliderPos2.y);
 				if (dist2 < dist) {
 					dist = dist2;
