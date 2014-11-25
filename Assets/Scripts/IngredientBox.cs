@@ -3,8 +3,10 @@ using System.Collections;
 
 public class IngredientBox : MonoBehaviour {
 
-	int count; //how many of this ingredient I have
-	Ingredient templateIngredient;
+	public int count; //how many of this ingredient I have
+	public Ingredient templateIngredient;
+	public Ingredient grabable;
+
 
 	// Use this for initialization
 	void Start () {

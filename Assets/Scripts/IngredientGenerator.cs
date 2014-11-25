@@ -7,6 +7,7 @@ public class IngredientGenerator : UnitySingleton<IngredientGenerator> {
     public Sprite[] sprites;
     Namer namer;
     public GameObject baseIngredient;
+	public DragCatchBox home;
 
     void Start()
     {

@@ -7,6 +7,8 @@ public class Cauldron : UnitySingleton<Cauldron> {
 	List<Ingredient> ingredients; //will be ingredient class
 	StatBlock allTheStats;
 	const int MAX_INGREDIENTS = 9;
+	DragCatchBox[] boxes;
+
 
 	// Use this for initialization
 	void Start () {

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Draggable : MonoBehaviour {
-	List<Collider2D> colliders = new List<Collider2D>();
+	private List<Collider2D> colliders = new List<Collider2D>();
 
 	public void OnTriggerEnter2D(Collider2D other) {
 		colliders.Add(other);
