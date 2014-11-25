@@ -75,4 +75,9 @@ public class StatBlock
 	{
 		Debug.Log("Statblock stats: str = " + str + " cha = " + cha + " intl = " + intl + " dex = " + dex);
 	}
+
+	public string getText()
+	{
+		return "str = " + str + " cha = " + cha + "\nintl = " + intl + " dex = " + dex;
+	}
 }

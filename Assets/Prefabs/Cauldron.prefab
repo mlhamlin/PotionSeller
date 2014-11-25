@@ -423,6 +423,7 @@ MonoBehaviour:
   overflow: {fileID: 0}
   OneIngredientType: 0
   allowed: {fileID: 0}
+  count: {fileID: 0}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -440,6 +441,7 @@ MonoBehaviour:
   overflow: {fileID: 11400000}
   OneIngredientType: 0
   allowed: {fileID: 0}
+  count: {fileID: 0}
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -457,6 +459,7 @@ MonoBehaviour:
   overflow: {fileID: 11400002}
   OneIngredientType: 0
   allowed: {fileID: 0}
+  count: {fileID: 0}
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -474,6 +477,7 @@ MonoBehaviour:
   overflow: {fileID: 11400004}
   OneIngredientType: 0
   allowed: {fileID: 0}
+  count: {fileID: 0}
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -491,6 +495,7 @@ MonoBehaviour:
   overflow: {fileID: 11400006}
   OneIngredientType: 0
   allowed: {fileID: 0}
+  count: {fileID: 0}
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -508,6 +513,7 @@ MonoBehaviour:
   overflow: {fileID: 11400008}
   OneIngredientType: 0
   allowed: {fileID: 0}
+  count: {fileID: 0}
 --- !u!114 &11400012
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -525,6 +531,7 @@ MonoBehaviour:
   overflow: {fileID: 11400010}
   OneIngredientType: 0
   allowed: {fileID: 0}
+  count: {fileID: 0}
 --- !u!114 &11400014
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -542,6 +549,7 @@ MonoBehaviour:
   overflow: {fileID: 11400012}
   OneIngredientType: 0
   allowed: {fileID: 0}
+  count: {fileID: 0}
 --- !u!114 &11400016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -559,6 +567,7 @@ MonoBehaviour:
   overflow: {fileID: 11400014}
   OneIngredientType: 0
   allowed: {fileID: 0}
+  count: {fileID: 0}
 --- !u!114 &11400018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -581,6 +590,7 @@ MonoBehaviour:
   - {fileID: 11400004}
   - {fileID: 11400002}
   - {fileID: 11400000}
+  statsText: {fileID: 0}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

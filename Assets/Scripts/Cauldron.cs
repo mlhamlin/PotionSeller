@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -8,6 +9,7 @@ public class Cauldron : UnitySingleton<Cauldron> {
 	public StatBlock allTheStats;
 	const int MAX_INGREDIENTS = 9;
 	public DragCatchBox[] boxes;
+	public Text statsText;
 
 	// Use this for initialization
 	void Start () {
@@ -19,6 +21,8 @@ public class Cauldron : UnitySingleton<Cauldron> {
 			box.dragAdded += attemptAddIngredient;
 			box.dragRemoved += attemptRemoveIngredient;
 		}
+
+		UpdateStatsTextUI();
 	}
 	
 	// Update is called once per frame
@@ -42,6 +46,7 @@ public class Cauldron : UnitySingleton<Cauldron> {
 			ingredients.Add(ing);
 			allTheStats.addValues(ing);
 			allTheStats.debugStats();
+			UpdateStatsTextUI();
 			return true;
 		}
 
@@ -64,6 +69,7 @@ public class Cauldron : UnitySingleton<Cauldron> {
 			ingredients.Remove(ing);
 			allTheStats.removeValues(ing);
 			allTheStats.debugStats();
+			UpdateStatsTextUI();
 			return true;
 		}
 
@@ -75,6 +81,14 @@ public class Cauldron : UnitySingleton<Cauldron> {
 		ingredients.Clear ();
 		Debug.LogError ("craft not yet implemented");
 		return null;
+	}
+
+	public void UpdateStatsTextUI()
+	{
+		if (statsText != null)
+		{
+			statsText.text = allTheStats.getText();
+		}
 	}
 	
 }

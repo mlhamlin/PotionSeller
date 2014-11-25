@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -16,9 +17,11 @@ public class DragCatchBox : MonoBehaviour {
 	public delegate void DraggableRemoved(SnapDraggable drag);
 	public DraggableRemoved dragRemoved;
 
+	public Text count;
+
 	// Use this for initialization
 	void Start () {
-	
+		updateCountUI();
 	}
 	
 	// Update is called once per frame
@@ -58,6 +61,7 @@ public class DragCatchBox : MonoBehaviour {
 		{
 			dragRemoved(drag);
 		}
+		updateCountUI();
 	}
 
 	//Item is really being added to this box
@@ -69,6 +73,15 @@ public class DragCatchBox : MonoBehaviour {
 		if (dragAdded != null)
 		{
 			dragAdded(drag);
+		}
+		updateCountUI();
+	}
+
+	public void updateCountUI()
+	{
+		if (count != null)
+		{
+			count.text = holding.Count.ToString();
 		}
 	}
 }
