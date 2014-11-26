@@ -87,6 +87,9 @@ public class Ingredient : MonoBehaviour {
 
 	public void OnMouseEnter()
 	{
-		IngredientInfoBox.Instance.changeIngredient (this);
+		if (!Input.GetMouseButton (0)) 
+		{
+			IngredientInfoBox.Instance.changeIngredient (this);
+		}
 	}
 }

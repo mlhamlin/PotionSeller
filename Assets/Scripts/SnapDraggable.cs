@@ -7,6 +7,8 @@ public class SnapDraggable : Draggable {
 	List<DragCatchBox> boxes = new List<DragCatchBox>();
 	public DragCatchBox homeBox;
 	public DragCatchBox current;
+	public const int DRAGGING_Z = -2;
+	public const int STATIONARY_Z = -1;
 		
 	new public void OnTriggerEnter2D(Collider2D other) {
 		DragCatchBox box = other.GetComponent<DragCatchBox>();
@@ -26,7 +28,7 @@ public class SnapDraggable : Draggable {
 		
 	new public void OnMouseDrag() {
 		Vector3 cursorPosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-		cursorPosition.z = gameObject.transform.position.z;
+		cursorPosition.z = DRAGGING_Z;
 		gameObject.transform.position = cursorPosition;
 		if (current != null)
 		{
