@@ -84,4 +84,9 @@ public class Ingredient : MonoBehaviour {
         }
         GetComponent<SpriteRenderer>().color = color;
     }
+
+	public void OnMouseEnter()
+	{
+		IngredientInfoBox.Instance.changeIngredient (this);
+	}
 }
