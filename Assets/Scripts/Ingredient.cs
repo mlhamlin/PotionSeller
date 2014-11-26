@@ -74,9 +74,9 @@ public class Ingredient : MonoBehaviour {
             if (red > 0) red += Random.Range(-0.1f, 0.1f)*red;
             if (green > 0) green += Random.Range(-0.1f, 0.1f)*green;
             if (blue > 0) blue += Random.Range(-0.1f, 0.1f)*blue;
-            color = new Color(red * (totalstats / 7), 
-                              green * (totalstats / 7), 
-                              blue * (totalstats / 7));
+            color = new Color(red * (0.4f + totalstats / 7),
+                              green * (0.4f + totalstats / 7),
+                              blue * (0.4f + totalstats / 7));
         }
         else
         {

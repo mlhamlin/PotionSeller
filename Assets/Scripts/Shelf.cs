@@ -44,6 +44,7 @@ public class Shelf : MonoBehaviour {
             }
             Ingredient ingr = IngredientGenerator.Instance.GenerateIngredient(ingramt);
             ingr.GetComponent<SnapDraggable>().homeBox = box;
+            box.allowed = ingr;
             ingr.GetComponent<SnapDraggable>().GoHome();
             genpoint++;
         }
