@@ -20,13 +20,32 @@ public class Shelf : MonoBehaviour {
 	void Update () {
         if (genpoint < totalboxes)
         {
+            DragCatchBox box = level1[0];
+            int ingramt = 0;
             if (genpoint < level1.Length)
             {
-                Ingredient ingr = IngredientGenerator.Instance.GenerateIngredient(2);
-                ingr.GetComponent<SnapDraggable>().homeBox = level1[genpoint];
-                ingr.GetComponent<SnapDraggable>().GoHome();
-                genpoint++;
+                ingramt = 2;
+                box = level1[genpoint];
             }
+            else if (genpoint < 12 + level2.Length)
+            {
+                ingramt = 4;
+                box = level2[genpoint - 12];
+            }
+            else if (genpoint < 20 + level3.Length)
+            {
+                ingramt = 6;
+                box = level3[genpoint - 20];
+            }
+            else if (genpoint < 28 + level4.Length)
+            {
+                ingramt = 8;
+                box = level4[genpoint - 28];
+            }
+            Ingredient ingr = IngredientGenerator.Instance.GenerateIngredient(ingramt);
+            ingr.GetComponent<SnapDraggable>().homeBox = box;
+            ingr.GetComponent<SnapDraggable>().GoHome();
+            genpoint++;
         }
 	}
 }
