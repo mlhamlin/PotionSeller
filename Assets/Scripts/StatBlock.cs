@@ -26,6 +26,14 @@ public class StatBlock
 		addValues (-ing.str, -ing.cha, -ing.intl, -ing.dex);
 	}
 
+	public void clear()
+	{
+		str = 0;
+		cha = 0;
+		intl = 0;
+		dex = 0;
+	}
+
 	public bool meetsRequirement (int checkStr, int checkCha, int checkIntl, int checkDex)
 	{
 		return ((checkStr <= str) && (checkCha <= cha) && (checkIntl <= intl) && (checkDex <= dex));

@@ -46,7 +46,6 @@ public class Cauldron : UnitySingleton<Cauldron> {
 		{
 			ingredients.Add(ing);
 			allTheStats.addValues(ing);
-			allTheStats.debugStats();
 			UpdateUI();
 			return true;
 		}
@@ -69,7 +68,6 @@ public class Cauldron : UnitySingleton<Cauldron> {
 		{
 			ingredients.Remove(ing);
 			allTheStats.removeValues(ing);
-			allTheStats.debugStats();
 			UpdateUI();
 			return true;
 		}
@@ -86,10 +84,16 @@ public class Cauldron : UnitySingleton<Cauldron> {
 			DestroyObject(ing.gameObject);
 		}
 
+		ingredients.Clear ();
+
+		allTheStats.clear ();
+
 		foreach (DragCatchBox box in boxes)
 		{
 			box.ForgetItAll();
 		}
+
+		UpdateUI ();
 	}
 
 	public void UpdateUI()
