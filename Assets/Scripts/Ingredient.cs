@@ -4,7 +4,7 @@ using System.Collections;
 public class Ingredient : MonoBehaviour {
 
     public Color color;
-    public int intl, str, cha, dex, cost, level;
+    public int intl, str, cha, dex, cost, level, totalatrb;
     public string ingrname;
     string[] AtrbIncrease = { "intl", "str", "cha", "dex" };
 
@@ -37,6 +37,7 @@ public class Ingredient : MonoBehaviour {
                 IncreaseDex(amt);
                 break;
         }
+        totalatrb += amt;
     }
 
     public void IncreaseIntl(int amt)
@@ -61,22 +62,21 @@ public class Ingredient : MonoBehaviour {
 
     public void ColorByStats()
     {
-        float totalstats = str + intl + dex + cha;
-        if (totalstats > 0)
+        if (totalatrb > 0)
         {
-            float strc = str / totalstats;
-            float intc = intl / totalstats;
-            float dexc = dex / totalstats;
-            float chac = cha / totalstats;
+            float strc = str / totalatrb;
+            float intc = intl / totalatrb;
+            float dexc = dex / totalatrb;
+            float chac = cha / totalatrb;
             float red = (strc + chac*0.75f);
             float  green = (dexc + chac*0.75f);
             float blue = intc;
             if (red > 0) red += Random.Range(-0.1f, 0.1f)*red;
             if (green > 0) green += Random.Range(-0.1f, 0.1f)*green;
             if (blue > 0) blue += Random.Range(-0.1f, 0.1f)*blue;
-            color = new Color(red * (0.4f + totalstats / 7),
-                              green * (0.4f + totalstats / 7),
-                              blue * (0.4f + totalstats / 7));
+            color = new Color(red * (0.4f + totalatrb / 7),
+                              green * (0.4f + totalatrb / 7),
+                              blue * (0.4f + totalatrb / 7));
         }
         else
         {

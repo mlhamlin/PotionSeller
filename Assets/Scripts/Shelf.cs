@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Shelf : MonoBehaviour {
+public class Shelf : UnitySingleton<Shelf> {
 
     public DragCatchBox[] level1;
     public DragCatchBox[] level2;
@@ -49,5 +49,19 @@ public class Shelf : MonoBehaviour {
             genpoint++;
         }
 	}
-}
 
+    public void PutInOpen(Ingredient ingredient)
+    {
+        int ingtotal = ingredient.totalatrb;
+
+        if (ingtotal < 2)
+        {
+            if (level1.Length < 12)
+            {
+                DragCatchBox box = level1[level1.Length];
+                ingredient.GetComponent<SnapDraggable>().homeBox = box;
+                ingredient.GetComponent<SnapDraggable>().GoHome();
+            }
+        }
+    }
+}

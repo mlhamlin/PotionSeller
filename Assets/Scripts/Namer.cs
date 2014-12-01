@@ -49,7 +49,7 @@ public class Namer : UnitySingleton<Namer> {
                 {
                     print(s.Substring(s.Length - 2));
                     print(s);
-                    level = Convert.ToInt32(s.Substring(s.Length - 2));
+                    level = Convert.ToInt32(s.Substring(s.Length - 1));
                 }
                 if (s.Contains("ATTRIBUTE"))
                 {
@@ -98,13 +98,13 @@ public class Namer : UnitySingleton<Namer> {
         switch(stat)
         {
             case 0:
-                //return intnames[1][UnityEngine.Random.Range(0, intnames[1].Count)];
+                return intnames[1][UnityEngine.Random.Range(0, intnames[1].Count)];
             case 1:
-                //return strnames[1][UnityEngine.Random.Range(0, strnames[1].Count)];
+                return strnames[1][UnityEngine.Random.Range(0, strnames[1].Count)];
             case 2:
-                //return chanames[1][UnityEngine.Random.Range(0, chanames[1].Count)];
+                return chanames[1][UnityEngine.Random.Range(0, chanames[1].Count)];
             case 3:
-                //return dexnames[1][UnityEngine.Random.Range(0, dexnames[1].Count)];
+                return dexnames[1][UnityEngine.Random.Range(0, dexnames[1].Count)];
             default:
                 return "A dumb";
         }
