@@ -52,7 +52,8 @@ public class Namer : UnitySingleton<Namer> {
                 }
                 if (s.Contains("ATTRIBUTE"))
                 {
-                    string attribute = s.Substring(s.IndexOf(':')+1, s.Length-s.IndexOf(':')-1);
+					string temp = s.TrimEnd('\r', '\n', ' ');
+					string attribute = temp.Substring(temp.IndexOf(':')+1, temp.Length - temp.IndexOf(':') - 1);
                     switch (attribute)
                     {
                         case "STRENGTH":
