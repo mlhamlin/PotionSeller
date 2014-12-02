@@ -32,9 +32,10 @@ public class RequestLogic : UnitySingleton<RequestLogic> {
 	{
 		if (FreeStyle())
 		{
-			requestInfoPanel.SetActive(false);
+			validText.enabled = false;
+			currentReqStats.text = "Freestyle!";
+			currentReqGoldReward.text = "Gold: " + cal.DummyGoldReward();
 		} else {
-			requestInfoPanel.SetActive(true);
 			validText.enabled = requests[currentReq].isFullfilled(cal.allTheStats);
 			currentReqStats.text = requests[currentReq].getText();
 			currentReqGoldReward.text = "Gold: " + requests[currentReq].goldReward;
@@ -62,5 +63,23 @@ public class RequestLogic : UnitySingleton<RequestLogic> {
 	public bool SelectedCraftable()
 	{
 		return FreeStyle() || requests[currentReq].isFullfilled(cal.allTheStats);
+	}
+
+	public void NextReq()
+	{
+		currentReq += 1;
+		if (currentReq >= requests.Count) 
+		{
+			currentReq = -1;
+		}
+	}
+
+	public void PrevReq()
+	{
+		currentReq -= 1;
+		if (currentReq < -1) 
+		{
+			currentReq = requests.Count - 1;
+		}
 	}
 }

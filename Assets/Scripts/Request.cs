@@ -36,6 +36,6 @@ public class Request : MonoBehaviour {
 
 	public string getText()
 	{
-		return "str = " + strlevel + " cha = " + chalevel + "\nintl = " + intlevel + " dex = " + dexlevel;
+		return "str = " + strlevel + "\ncha = " + chalevel + "\nintl = " + intlevel + "\ndex = " + dexlevel;
 	}
 }

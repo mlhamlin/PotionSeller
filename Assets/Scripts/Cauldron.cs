@@ -12,6 +12,7 @@ public class Cauldron : UnitySingleton<Cauldron> {
 	public Text statsText;
 	public Text valueText;
 	public Button craftButton;
+	public bool doneFirst;
 
 	// Use this for initialization
 	void Start () {
@@ -23,13 +24,15 @@ public class Cauldron : UnitySingleton<Cauldron> {
 			box.dragAdded += attemptAddIngredient;
 			box.dragRemoved += attemptRemoveIngredient;
 		}
-
-		UpdateUI();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (!doneFirst) 
+		{
+			UpdateUI();
+			doneFirst = true;
+		}
 	}
 
 	public void attemptAddIngredient(SnapDraggable drag)
