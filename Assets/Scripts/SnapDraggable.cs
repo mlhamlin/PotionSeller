@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class SnapDraggable : Draggable {
+public class SnapDraggable : MonoBehaviour {
 	
 	List<DragCatchBox> boxes = new List<DragCatchBox>();
 	public DragCatchBox homeBox;
@@ -10,7 +10,7 @@ public class SnapDraggable : Draggable {
 	public const int DRAGGING_Z = -2;
 	public const int STATIONARY_Z = -1;
 		
-	new public void OnTriggerEnter2D(Collider2D other) {
+	public void OnTriggerEnter2D(Collider2D other) {
 		DragCatchBox box = other.GetComponent<DragCatchBox>();
 		if (box != null)
 		{
@@ -18,7 +18,7 @@ public class SnapDraggable : Draggable {
 		}
 	}
 
-	new public void OnTriggerExit2D(Collider2D other) {
+	public void OnTriggerExit2D(Collider2D other) {
 		DragCatchBox box = other.GetComponent<DragCatchBox>();
 		if (box != null)
 		{
@@ -26,7 +26,7 @@ public class SnapDraggable : Draggable {
 		}		
 	}
 		
-	new public void OnMouseDrag() {
+	public void OnMouseDrag() {
 		Vector3 cursorPosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 		cursorPosition.z = DRAGGING_Z;
 		gameObject.transform.position = cursorPosition;
@@ -37,7 +37,7 @@ public class SnapDraggable : Draggable {
 		}
 	}
 		
-	new public void OnMouseUp() {
+	public void OnMouseUp() {
 
 		if (boxes.Count > 0) {
 			Vector3 pos = gameObject.transform.position;
