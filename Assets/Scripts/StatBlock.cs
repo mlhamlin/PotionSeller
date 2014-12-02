@@ -86,7 +86,7 @@ public class StatBlock
 
 	public string getText()
 	{
-		return "str = " + str + " cha = " + cha + "\nintl = " + intl + " dex = " + dex;
+		return "str = " + str + "\ncha = " + cha + "\nintl = " + intl + "\ndex = " + dex;
 	}
 
 	public int getStatSum()
