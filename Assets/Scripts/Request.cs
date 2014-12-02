@@ -18,6 +18,11 @@ public class Request : MonoBehaviour {
 	
 	}
 
+	public bool isFullfilled(StatBlock stats)
+	{
+		return stats.meetsRequirement(strlevel, chalevel, intlevel, dexlevel);
+	}
+
     void Fulfill()
     {
         Shelf shelf = Shelf.Instance;
@@ -28,4 +33,9 @@ public class Request : MonoBehaviour {
             shelf.PutInOpen(reward);
         }
     }
+
+	public string getText()
+	{
+		return "str = " + strlevel + " cha = " + chalevel + "\nintl = " + intlevel + " dex = " + dexlevel;
+	}
 }

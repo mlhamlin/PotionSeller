@@ -11,6 +11,7 @@ public class Cauldron : UnitySingleton<Cauldron> {
 	public DragCatchBox[] boxes;
 	public Text statsText;
 	public Text valueText;
+	public Button craftButton;
 
 	// Use this for initialization
 	void Start () {
@@ -77,8 +78,14 @@ public class Cauldron : UnitySingleton<Cauldron> {
 
 	public void craft()
 	{
-		//TODO: Improve this
-		PlayerInfo.Instance.addGold(DummyGoldReward());
+		//TODO: Improve this\
+		if (RequestLogic.Instance.FreeStyle())
+		{
+			PlayerInfo.Instance.addGold(DummyGoldReward());
+		} else {
+			PlayerInfo.Instance.addGold(RequestLogic.Instance.CurrentReq.goldReward);
+		}
+
 		foreach (Ingredient ing in ingredients)
 		{
 			DestroyObject(ing.gameObject);
@@ -107,6 +114,8 @@ public class Cauldron : UnitySingleton<Cauldron> {
 		{
 			valueText.text = "Value: " + DummyGoldReward();
 		}
+
+		craftButton.interactable = RequestLogic.Instance.SelectedCraftable();
 	}
 
 	//This does stuff, attempts to reward more for better ingredient use and better sum.
@@ -119,5 +128,6 @@ public class Cauldron : UnitySingleton<Cauldron> {
 
 		return 0;
 	}
+
 	
 }

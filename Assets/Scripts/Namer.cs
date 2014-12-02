@@ -47,8 +47,6 @@ public class Namer : UnitySingleton<Namer> {
                     state = STATE_INGREDIENT;
                 if (s.Contains("LEVEL"))
                 {
-                    print(s.Substring(s.Length - 2));
-                    print(s);
                     level = Convert.ToInt32(s.Substring(s.Length - 1));
                 }
                 if (s.Contains("ATTRIBUTE"))
