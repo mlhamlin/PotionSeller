@@ -17,6 +17,7 @@ public class Ingredient : MonoBehaviour {
 		dex = original.dex;
 		cost = original.cost;
 		level = original.level;
+		totalatrb = original.totalatrb;
 	}
 
     // 0 intl, 1 str, 2 cha, 3 dex
@@ -64,22 +65,23 @@ public class Ingredient : MonoBehaviour {
     {
         if (totalatrb > 0)
         {
-            float strc = str / totalatrb;
-            float intc = intl / totalatrb;
-            float dexc = dex / totalatrb;
-            float chac = cha / totalatrb;
+            float strc = (float) str / totalatrb;
+			float intc = (float) intl / totalatrb;
+			float dexc = (float) dex / totalatrb;
+			float chac = (float) cha / totalatrb;
             float red = (strc + chac*0.75f);
             float  green = (dexc + chac*0.75f);
             float blue = intc;
             if (red > 0) red += Random.Range(-0.1f, 0.1f)*red;
             if (green > 0) green += Random.Range(-0.1f, 0.1f)*green;
             if (blue > 0) blue += Random.Range(-0.1f, 0.1f)*blue;
-            color = new Color(red * (0.4f + totalatrb / 7),
-                              green * (0.4f + totalatrb / 7),
-                              blue * (0.4f + totalatrb / 7));
+			color = new Color(red * (0.4f + totalatrb / 7f),
+                              green * (0.4f + totalatrb / 7f),
+                              blue * (0.4f + totalatrb / 7f));
         }
         else
         {
+			Debug.Log("totalatrb is 0");
             color = new Color(0, 0, 0);
         }
         GetComponent<SpriteRenderer>().color = color;
