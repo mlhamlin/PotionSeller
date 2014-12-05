@@ -17,6 +17,11 @@ public class IngredientGenerator : UnitySingleton<IngredientGenerator> {
 
     public Ingredient GenerateIngredient(int maxstats)
     {
+        if (namer == null)
+        {
+            namer = Namer.Instance;
+            names = namer.GetAllIngredientNames();
+        }
         Ingredient newIngredient = ((GameObject)Instantiate(baseIngredient)).GetComponent<Ingredient>();
         int primarystat = Random.Range(0, 4);
         int secondarystat = Random.Range(0, 4);

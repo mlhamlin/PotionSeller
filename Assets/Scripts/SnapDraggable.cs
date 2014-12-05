@@ -33,7 +33,6 @@ public class SnapDraggable : MonoBehaviour {
 		if (current != null)
 		{
 			current.ByeNow(this);
-			current = null;
 		}
 	}
 		
@@ -64,12 +63,15 @@ public class SnapDraggable : MonoBehaviour {
 
 	//Throws draggable back to home box
 	public void GoHome() {
+        current = null;
 		homeBox.CatchMe(this);
 	}
 
 	//Allows DragCatchBox to inform SnapDraggable which box ended up with it
 	public void IHaveYou(DragCatchBox box)
 	{
+        if (current != null)
+            current.ReallyBye(this);
 		current = box;
 	}
 }

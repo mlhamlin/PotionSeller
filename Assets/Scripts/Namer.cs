@@ -48,6 +48,7 @@ public class Namer : UnitySingleton<Namer> {
                 if (s.Contains("LEVEL"))
                 {
 					string temp = s.TrimEnd('\r', '\n', ' ');
+                    print(temp+" "+temp.Substring(temp.Length - 1));
 					level = Convert.ToInt32(temp.Substring(temp.Length - 1));
                 }
                 if (s.Contains("ATTRIBUTE"))

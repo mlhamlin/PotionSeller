@@ -11,6 +11,7 @@ GameObject:
   - 61: {fileID: 6100000}
   - 114: {fileID: 11400000}
   - 212: {fileID: 21200000}
+  - 114: {fileID: 11400002}
   m_Layer: 8
   m_Name: DragCatchTile
   m_TagString: Untagged
@@ -44,9 +45,23 @@ MonoBehaviour:
   onlyOne: 0
   holding: []
   overflow: {fileID: 0}
-  OneIngredientType: 0
+  OneIngredientType: 1
   allowed: {fileID: 0}
   count: {fileID: 0}
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e88cc1eb34bc6454d90d91bb011c5ea2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingr: {fileID: 0}
+  nremainingtext: {fileID: 0}
+  itemcount: 10
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -83,7 +98,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 3.67000008, y: 2.26999998}
+  m_AnchoredPosition: {x: 3.61999989, y: 4.75}
   m_SizeDelta: {x: .0799999982, y: .0799999982}
   m_Pivot: {x: .5, y: .5}
 --- !u!1001 &100100000

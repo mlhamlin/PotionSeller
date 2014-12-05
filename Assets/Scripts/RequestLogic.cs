@@ -12,6 +12,7 @@ public class RequestLogic : UnitySingleton<RequestLogic> {
 	public Text currentReqGoldReward;
 	public Text validText;
 	private Cauldron cal;
+    int numbergenerated;
 
 
 	// Use this for initialization
@@ -21,7 +22,15 @@ public class RequestLogic : UnitySingleton<RequestLogic> {
 		{
 			requests.Add(RequestGenerator.Instance.GenerateRequest(i));
 		}
-
+        foreach (Ingredient ingrw in requests[1].ingrewards)
+        {
+            ingrw.GetComponent<SpriteRenderer>().enabled = false;
+        }
+        foreach (Ingredient ingrw in requests[2].ingrewards)
+        {
+            ingrw.GetComponent<SpriteRenderer>().enabled = false;
+        }
+        numbergenerated = 3;
 		cal = Cauldron.Instance;
 
 		currentReq = 0;
@@ -60,6 +69,12 @@ public class RequestLogic : UnitySingleton<RequestLogic> {
 		}
 	}
 
+    public void ReplaceCurrentRequest()
+    {
+        requests[currentReq] = RequestGenerator.Instance.GenerateRequest(1);
+        numbergenerated++;
+    }
+
 	public bool SelectedCraftable()
 	{
 		return FreeStyle() || requests[currentReq].isFullfilled(cal.allTheStats);
@@ -67,19 +82,47 @@ public class RequestLogic : UnitySingleton<RequestLogic> {
 
 	public void NextReq()
 	{
+        if (!FreeStyle())
+        {
+            foreach (Ingredient ingrw in requests[currentReq].ingrewards)
+            {
+                ingrw.GetComponent<SpriteRenderer>().enabled = false;
+            }
+        }
 		currentReq += 1;
 		if (currentReq >= requests.Count) 
 		{
 			currentReq = -1;
 		}
+        if (!FreeStyle())
+        {
+            foreach (Ingredient ingrw in requests[currentReq].ingrewards)
+            {
+                ingrw.GetComponent<SpriteRenderer>().enabled = true;
+            }
+        }
 	}
 
 	public void PrevReq()
 	{
+        if (!FreeStyle())
+        {
+            foreach (Ingredient ingrw in requests[currentReq].ingrewards)
+            {
+                ingrw.GetComponent<SpriteRenderer>().enabled = false;
+            }
+        }
 		currentReq -= 1;
 		if (currentReq < -1) 
 		{
 			currentReq = requests.Count - 1;
 		}
+        if (!FreeStyle())
+        {
+            foreach (Ingredient ingrw in requests[currentReq].ingrewards)
+            {
+                ingrw.GetComponent<SpriteRenderer>().enabled = true;
+            }
+        }
 	}
 }
