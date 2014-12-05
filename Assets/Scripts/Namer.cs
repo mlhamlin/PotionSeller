@@ -48,7 +48,6 @@ public class Namer : UnitySingleton<Namer> {
                 if (s.Contains("LEVEL"))
                 {
 					string temp = s.TrimEnd('\r', '\n', ' ');
-                    print(temp+" "+temp.Substring(temp.Length - 1));
 					level = Convert.ToInt32(temp.Substring(temp.Length - 1));
                 }
                 if (s.Contains("ATTRIBUTE"))
@@ -78,8 +77,7 @@ public class Namer : UnitySingleton<Namer> {
                 }
                 if (s.Contains("TITLE"))
                 {
-                    leveltitles.Insert(level, s.Substring(s.IndexOf(':') + 1));
-                    leveltitles.RemoveAt(level + 1);
+                    leveltitles[level]  = s.Substring(s.IndexOf(':') + 1);
                 }
             }
             else if (state == STATE_INGREDIENT)
@@ -109,5 +107,10 @@ public class Namer : UnitySingleton<Namer> {
             default:
                 return "A dumb";
         }
+    }
+
+    public string getLevelName(int level)
+    {
+        return leveltitles[level];
     }
 }

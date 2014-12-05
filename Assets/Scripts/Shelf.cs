@@ -7,54 +7,70 @@ public class Shelf : UnitySingleton<Shelf> {
     public ShelfSpot[] level2;
     public ShelfSpot[] level3;
     public ShelfSpot[] level4;
-    int genpoint = 0;
+    int[] genpoints;
     int totalboxes;
 
 	// Use this for initialization
     void Start() 
     {
         totalboxes = level1.Length + level2.Length + level3.Length + level4.Length;
+        genpoints = new int[4] {0, 0, 0, 0};
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (genpoint < 8)
+        if (genpoints[0] < 8)
         {
-            ShelfSpot sbox = level1[genpoint];
+            ShelfSpot sbox = level1[genpoints[0]];
             int ingramt = 0;
                 ingramt = 2;
             Ingredient ingr = IngredientGenerator.Instance.GenerateIngredient(ingramt);
             sbox.InitBox(ingr);
-            genpoint++;
+            genpoints[0]++;
         }
 	}
 
     public void PutInOpen(Ingredient ingredient)
     {
-        int ingtotal = ingredient.totalatrb;
-
-        if (genpoint < totalboxes)
+        bool hasSpace = true;
+        ShelfSpot box = level1[0];
+        if (ingredient.totalatrb < 3)
         {
-            ShelfSpot box = level1[0];
-            if (genpoint < 12)
+            if (genpoints[0] < level1.Length)
             {
-                box = level1[genpoint];
+                box = level1[genpoints[0]];
+                hasSpace = true;
+                genpoints[0]++;
             }
-            else if (genpoint < 20)
-            {
-                box = level2[genpoint-12];
-            }
-            else if (genpoint < 28)
-            {
-                box = level3[genpoint-20];
-            }
-            else if (genpoint < 32)
-            {
-                box = level4[genpoint-28];
-            }
-            box.InitBox(ingredient);
-
-            genpoint++;
         }
+        else if (ingredient.totalatrb < 6)
+        {
+            if (genpoints[1] < level2.Length)
+            {
+                box = level2[genpoints[1]];
+                hasSpace = true;
+                genpoints[1]++;
+            }
+        }
+        else if (ingredient.totalatrb < 9)
+        {
+            if (genpoints[2] < level3.Length)
+            {
+                box = level3[genpoints[2]];
+                hasSpace = true;
+                genpoints[2]++;
+            }
+        }
+        else
+        {
+            if (genpoints[3] < level4.Length)
+            {
+                box = level4[genpoints[3]];
+                hasSpace = true;
+                genpoints[3]++;
+            }
+        }
+        if (hasSpace)
+            box.InitBox(ingredient);
     }
 }

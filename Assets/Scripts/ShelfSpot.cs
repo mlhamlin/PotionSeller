@@ -25,6 +25,8 @@ public class ShelfSpot : MonoBehaviour {
             Ingredient newingr = ((GameObject)Instantiate(ingr.gameObject)).GetComponent<Ingredient>();
             newingr.GetComponent<SnapDraggable>().homeBox = box;
             newingr.GetComponent<SnapDraggable>().GoHome();
+            if (nremainingtext != null)
+                nremainingtext.text = itemcount.ToString();
         }
     }
 
@@ -35,6 +37,8 @@ public class ShelfSpot : MonoBehaviour {
             box.holding.Remove(drag);
             Destroy(drag.gameObject);
             itemcount++;
+            if (nremainingtext != null)
+                nremainingtext.text = itemcount.ToString();
         }
     }
 
@@ -48,6 +52,8 @@ public class ShelfSpot : MonoBehaviour {
             newingr.GetComponent<SnapDraggable>().homeBox = box;
             newingr.GetComponent<SnapDraggable>().GoHome();
             itemcount--;
+            if (nremainingtext != null)
+                nremainingtext.text = itemcount.ToString();
         }
     }
 }

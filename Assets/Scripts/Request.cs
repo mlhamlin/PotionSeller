@@ -29,7 +29,7 @@ public class Request : MonoBehaviour {
     {
         Shelf shelf = Shelf.Instance;
         PlayerInfo pinfo = PlayerInfo.Instance;
-        pinfo.Gold += goldReward;
+        pinfo.addGold(goldReward);
         print("gold added!");
         foreach (Ingredient reward in ingrewards)
         {
