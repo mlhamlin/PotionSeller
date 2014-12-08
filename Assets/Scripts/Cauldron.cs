@@ -103,6 +103,8 @@ public class Cauldron : UnitySingleton<Cauldron> {
 			box.ForgetItAll();
 		}
 
+		RequestLogic.Instance.CompletedRequest ();
+
 		UpdateUI ();
 	}
 

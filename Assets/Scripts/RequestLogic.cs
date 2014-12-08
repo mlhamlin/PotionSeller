@@ -13,7 +13,6 @@ public class RequestLogic : UnitySingleton<RequestLogic> {
 	public Text validText;
 	private Cauldron cal;
 
-
 	// Use this for initialization
 	void Start () {
 		requests = new List<Request>();
@@ -80,6 +79,21 @@ public class RequestLogic : UnitySingleton<RequestLogic> {
 		if (currentReq < -1) 
 		{
 			currentReq = requests.Count - 1;
+		}
+	}
+
+	public void CompletedRequest()
+	{
+		ReplaceRequest (currentReq);
+	}
+
+	public void ReplaceRequest(int i)
+	{
+		if ((-1 < i) && (i < requests.Count))
+		{
+			Request holder = requests[i];
+			requests[i] = RequestGenerator.Instance.GenerateRequest(holder.difficulty);
+			GameObject.Destroy(holder.gameObject);
 		}
 	}
 }

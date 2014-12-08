@@ -63,6 +63,8 @@ public class RequestGenerator : UnitySingleton<RequestGenerator> {
 		int partTwo = Random.Range(0, LoremBits.Length);
 		newReq.reqname = LoremBits[partOne] + " " + LoremBits[partTwo];
 
+		newReq.difficulty = difficulty;
+
 		return newReq;
 	}
 

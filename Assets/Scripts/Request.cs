@@ -7,6 +7,7 @@ public class Request : MonoBehaviour {
     public int goldReward;
     public Ingredient[] ingrewards;
     public string reqname;
+	public int difficulty;
 	
     // Use this for initialization
 	void Start () {
