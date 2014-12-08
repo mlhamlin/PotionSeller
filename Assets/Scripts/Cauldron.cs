@@ -86,29 +86,24 @@ public class Cauldron : UnitySingleton<Cauldron> {
 		{
 			PlayerInfo.Instance.addGold(DummyGoldReward());
 		} else {
-            //PlayerInfo.Instance.addGold(RequestLogic.Instance.CurrentReq.goldReward);
             RequestLogic.Instance.CurrentReq.Fulfill();
-            print("fulfilled!");
             RequestLogic.Instance.ReplaceCurrentRequest();
 		}
-        print("new request!");
+
 		foreach (Ingredient ing in ingredients)
 		{
 			DestroyObject(ing.gameObject);
 		}
-        print("Ingredients gone!");
+
 		ingredients.Clear ();
-        print("Ingredients cleared!");
 		allTheStats.clear ();
-        print("Stats cleared!");
+
 		foreach (DragCatchBox box in boxes)
 		{
 			box.ForgetItAll();
 		}
 
-        print("Boxes forgotten!");
 		UpdateUI ();
-        print("Updated UI!");
 	}
 
 	public void UpdateUI()

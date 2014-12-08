@@ -20,6 +20,7 @@ public class ShelfSpot : MonoBehaviour {
     {
         box.allowed = ing;
         ingr = ing;
+		ing.gameObject.transform.parent = gameObject.transform;
         if (box.holding.Count == 0)
         {
             Ingredient newingr = ((GameObject)Instantiate(ingr.gameObject)).GetComponent<Ingredient>();

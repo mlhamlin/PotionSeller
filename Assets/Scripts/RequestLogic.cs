@@ -13,6 +13,7 @@ public class RequestLogic : UnitySingleton<RequestLogic> {
 	public Text validText;
 	private Cauldron cal;
     int numbergenerated;
+	public GameObject Panel; 
 
 	// Use this for initialization
 	void Start () {
@@ -70,7 +71,9 @@ public class RequestLogic : UnitySingleton<RequestLogic> {
 
     public void ReplaceCurrentRequest()
     {
-        requests[currentReq] = RequestGenerator.Instance.GenerateRequest(CurrentReq.difficulty);
+		Request holder = requests [currentReq];
+        requests[currentReq] = RequestGenerator.Instance.GenerateRequest(holder.difficulty);
+		GameObject.Destroy(holder.gameObject);
         numbergenerated++;
     }
 
@@ -79,6 +82,7 @@ public class RequestLogic : UnitySingleton<RequestLogic> {
 		return FreeStyle() || requests[currentReq].isFullfilled(cal.allTheStats);
 	}
 
+	//Wraps around
 	public void NextReq()
 	{
         if (!FreeStyle())
@@ -102,6 +106,7 @@ public class RequestLogic : UnitySingleton<RequestLogic> {
         }
 	}
 
+	//Wraps around
 	public void PrevReq()
 	{
         if (!FreeStyle())
@@ -125,18 +130,35 @@ public class RequestLogic : UnitySingleton<RequestLogic> {
         }
 	}
 
-	public void CompletedRequest()
+	//Clamps instead of wrapping.
+	public void SelectReq(int i)
 	{
-		ReplaceRequest (currentReq);
+		if (!FreeStyle())
+		{
+			foreach (Ingredient ingrw in requests[currentReq].ingrewards)
+			{
+				ingrw.GetComponent<SpriteRenderer>().enabled = false;
+			}
+		}
+
+		currentReq = i;
+
+		currentReq = Mathf.Max (currentReq, -1);
+		currentReq = Mathf.Min (currentReq, requests.Count);
+
+		if (!FreeStyle())
+		{
+			foreach (Ingredient ingrw in requests[currentReq].ingrewards)
+			{
+				ingrw.GetComponent<SpriteRenderer>().enabled = true;
+			}
+		}
+
+		ToggleSelectionWindow ();
 	}
 
-	public void ReplaceRequest(int i)
+	public void ToggleSelectionWindow()
 	{
-		if ((-1 < i) && (i < requests.Count))
-		{
-			Request holder = requests[i];
-			requests[i] = RequestGenerator.Instance.GenerateRequest(holder.difficulty);
-			GameObject.Destroy(holder.gameObject);
-		}
+		Panel.SetActive (!Panel.activeSelf);
 	}
 }

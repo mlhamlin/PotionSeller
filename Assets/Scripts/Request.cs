@@ -31,14 +31,12 @@ public class Request : MonoBehaviour {
         Shelf shelf = Shelf.Instance;
         PlayerInfo pinfo = PlayerInfo.Instance;
         pinfo.addGold(goldReward);
-        print("gold added!");
         foreach (Ingredient reward in ingrewards)
         {
             reward.GetComponent<BoxCollider2D>().enabled = true;
             shelf.PutInOpen(reward);
             reward.transform.position = new Vector2(10, 10);
         }
-        print("Ingredients added!");
     }
 
 	public string getText()
