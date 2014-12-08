@@ -106,8 +106,6 @@ public class Cauldron : UnitySingleton<Cauldron> {
 			box.ForgetItAll();
 		}
 
-		RequestLogic.Instance.CompletedRequest ();
-
         print("Boxes forgotten!");
 		UpdateUI ();
         print("Updated UI!");

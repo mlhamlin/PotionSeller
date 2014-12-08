@@ -70,7 +70,7 @@ public class RequestLogic : UnitySingleton<RequestLogic> {
 
     public void ReplaceCurrentRequest()
     {
-        requests[currentReq] = RequestGenerator.Instance.GenerateRequest(1);
+        requests[currentReq] = RequestGenerator.Instance.GenerateRequest(CurrentReq.difficulty);
         numbergenerated++;
     }
 
