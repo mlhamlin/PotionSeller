@@ -3,65 +3,74 @@ using System.Collections;
 
 public class Shelf : UnitySingleton<Shelf> {
 
-    public DragCatchBox[] level1;
-    public DragCatchBox[] level2;
-    public DragCatchBox[] level3;
-    public DragCatchBox[] level4;
-    int genpoint = 0;
+    public ShelfSpot[] level1;
+    public ShelfSpot[] level2;
+    public ShelfSpot[] level3;
+    public ShelfSpot[] level4;
+    int[] genpoints;
     int totalboxes;
 
 	// Use this for initialization
     void Start() 
     {
         totalboxes = level1.Length + level2.Length + level3.Length + level4.Length;
+        genpoints = new int[4] {0, 0, 0, 0};
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (genpoint < totalboxes)
+        if (genpoints[0] < 8)
         {
-            DragCatchBox box = level1[0];
+            ShelfSpot sbox = level1[genpoints[0]];
             int ingramt = 0;
-            if (genpoint < level1.Length)
-            {
                 ingramt = 2;
-                box = level1[genpoint];
-            }
-            else if (genpoint < 12 + level2.Length)
-            {
-                ingramt = 4;
-                box = level2[genpoint - 12];
-            }
-            else if (genpoint < 20 + level3.Length)
-            {
-                ingramt = 6;
-                box = level3[genpoint - 20];
-            }
-            else if (genpoint < 28 + level4.Length)
-            {
-                ingramt = 8;
-                box = level4[genpoint - 28];
-            }
             Ingredient ingr = IngredientGenerator.Instance.GenerateIngredient(ingramt);
-            ingr.GetComponent<SnapDraggable>().homeBox = box;
-            box.allowed = ingr;
-            ingr.GetComponent<SnapDraggable>().GoHome();
-            genpoint++;
+            sbox.InitBox(ingr);
+            genpoints[0]++;
         }
 	}
 
     public void PutInOpen(Ingredient ingredient)
     {
-        int ingtotal = ingredient.totalatrb;
-
-        if (ingtotal < 2)
+        bool hasSpace = true;
+        ShelfSpot box = level1[0];
+        if (ingredient.totalatrb < 3)
         {
-            if (level1.Length < 12)
+            if (genpoints[0] < level1.Length)
             {
-                DragCatchBox box = level1[level1.Length];
-                ingredient.GetComponent<SnapDraggable>().homeBox = box;
-                ingredient.GetComponent<SnapDraggable>().GoHome();
+                box = level1[genpoints[0]];
+                hasSpace = true;
+                genpoints[0]++;
             }
         }
+        else if (ingredient.totalatrb < 6)
+        {
+            if (genpoints[1] < level2.Length)
+            {
+                box = level2[genpoints[1]];
+                hasSpace = true;
+                genpoints[1]++;
+            }
+        }
+        else if (ingredient.totalatrb < 9)
+        {
+            if (genpoints[2] < level3.Length)
+            {
+                box = level3[genpoints[2]];
+                hasSpace = true;
+                genpoints[2]++;
+            }
+        }
+        else
+        {
+            if (genpoints[3] < level4.Length)
+            {
+                box = level4[genpoints[3]];
+                hasSpace = true;
+                genpoints[3]++;
+            }
+        }
+        if (hasSpace)
+            box.InitBox(ingredient);
     }
 }

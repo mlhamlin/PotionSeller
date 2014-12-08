@@ -4,6 +4,7 @@ using System.Collections;
 public class RequestGenerator : UnitySingleton<RequestGenerator> {
 
 	public GameObject baseRequest;
+    public DragCatchBox[] boxes;
 
 	private const string LOREM = "Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum";
 	private string[] LoremBits;
@@ -33,6 +34,7 @@ public class RequestGenerator : UnitySingleton<RequestGenerator> {
 		}
 
 		Request newReq = ((GameObject)Instantiate(baseRequest)).GetComponent<Request>();
+        newReq.ingboxes = boxes;
 		int totalStats = 1;
 		switch(difficulty)
 		{
@@ -58,6 +60,12 @@ public class RequestGenerator : UnitySingleton<RequestGenerator> {
 		newReq = IncreaseRequirement(newReq, Random.Range(0, 4), totalStats);
 
 		newReq.goldReward = 25 + (100 * difficulty) + Random.Range(0, 100);
+        if (Random.Range(1, 1) > 0)
+        {
+            Ingredient ing = IngredientGenerator.Instance.GenerateIngredient(Mathf.Max(Random.Range(difficulty*3+2, difficulty*4+2), 0));
+            newReq.AddIngredient(ing);
+            ing.GetComponent<SnapDraggable>().enabled = false;
+        }
 
 		int partOne = Random.Range(0, LoremBits.Length);
 		int partTwo = Random.Range(0, LoremBits.Length);

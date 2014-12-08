@@ -94,4 +94,13 @@ public class Ingredient : MonoBehaviour {
 			IngredientInfoBox.Instance.changeIngredient (this);
 		}
 	}
+
+    public override bool Equals(object o2)
+    {
+        Ingredient ing = o2 as Ingredient;
+        return ing != null && totalatrb == ing.totalatrb
+            && ing.color == color && ing.ingrname == ingrname
+            && GetComponent<SpriteRenderer>().sprite ==
+               ing.GetComponent<SpriteRenderer>().sprite;
+    }
 }

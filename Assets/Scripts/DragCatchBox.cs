@@ -16,6 +16,8 @@ public class DragCatchBox : MonoBehaviour {
 	public DraggableAdded dragAdded;
 	public delegate void DraggableRemoved(SnapDraggable drag);
 	public DraggableRemoved dragRemoved;
+    public delegate void DraggableInNew(SnapDraggable drag);
+    public DraggableInNew draggedIntoNew;
 
 	public Text count;
 
@@ -36,7 +38,7 @@ public class DragCatchBox : MonoBehaviour {
 		{
 			Ingredient dragIng = drag.GetComponent<Ingredient>();
 
-			if (dragIng != allowed)
+			if (!dragIng.Equals(allowed))
 			{
 				drag.GoHome();
 				return;
@@ -63,6 +65,14 @@ public class DragCatchBox : MonoBehaviour {
 		}
 		updateCountUI();
 	}
+
+    public void ReallyBye(SnapDraggable drag)
+    {
+        if (draggedIntoNew != null)
+        {
+            draggedIntoNew(drag);
+        }
+    }
 
 	//Item is really being added to this box
 	public void ItsTrueLove(SnapDraggable drag)
