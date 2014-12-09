@@ -92,6 +92,16 @@ public class Ingredient : MonoBehaviour {
 		if (!Input.GetMouseButton (0)) 
 		{
 			IngredientInfoBox.Instance.changeIngredient (this);
+			IngredientToolTip.Instance.activateTooltip(this);
+		}
+	}
+
+	public void OnMouseExit()
+	{
+		if (!Input.GetMouseButton (0)) 
+		{
+			IngredientInfoBox.Instance.changeIngredient (this);
+			IngredientToolTip.Instance.deactivateToolTip();
 		}
 	}
 

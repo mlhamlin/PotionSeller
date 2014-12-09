@@ -25,10 +25,12 @@ public class RequestLogic : UnitySingleton<RequestLogic> {
         foreach (Ingredient ingrw in requests[1].ingrewards)
         {
             ingrw.GetComponent<SpriteRenderer>().enabled = false;
+			ingrw.gameObject.SetActive(false);
         }
         foreach (Ingredient ingrw in requests[2].ingrewards)
         {
             ingrw.GetComponent<SpriteRenderer>().enabled = false;
+			ingrw.gameObject.SetActive(false);
         }
         numbergenerated = 3;
 		cal = Cauldron.Instance;
@@ -90,6 +92,7 @@ public class RequestLogic : UnitySingleton<RequestLogic> {
             foreach (Ingredient ingrw in requests[currentReq].ingrewards)
             {
                 ingrw.GetComponent<SpriteRenderer>().enabled = false;
+				ingrw.gameObject.SetActive(false);
             }
         }
 		currentReq += 1;
@@ -102,6 +105,7 @@ public class RequestLogic : UnitySingleton<RequestLogic> {
             foreach (Ingredient ingrw in requests[currentReq].ingrewards)
             {
                 ingrw.GetComponent<SpriteRenderer>().enabled = true;
+				ingrw.gameObject.SetActive(true);
             }
         }
 	}
@@ -114,6 +118,7 @@ public class RequestLogic : UnitySingleton<RequestLogic> {
             foreach (Ingredient ingrw in requests[currentReq].ingrewards)
             {
                 ingrw.GetComponent<SpriteRenderer>().enabled = false;
+				ingrw.gameObject.SetActive(false);
             }
         }
 		currentReq -= 1;
@@ -126,6 +131,7 @@ public class RequestLogic : UnitySingleton<RequestLogic> {
             foreach (Ingredient ingrw in requests[currentReq].ingrewards)
             {
                 ingrw.GetComponent<SpriteRenderer>().enabled = true;
+				ingrw.gameObject.SetActive(true);
             }
         }
 	}
@@ -138,6 +144,7 @@ public class RequestLogic : UnitySingleton<RequestLogic> {
 			foreach (Ingredient ingrw in requests[currentReq].ingrewards)
 			{
 				ingrw.GetComponent<SpriteRenderer>().enabled = false;
+				ingrw.gameObject.SetActive(false);
 			}
 		}
 
@@ -151,6 +158,7 @@ public class RequestLogic : UnitySingleton<RequestLogic> {
 			foreach (Ingredient ingrw in requests[currentReq].ingrewards)
 			{
 				ingrw.GetComponent<SpriteRenderer>().enabled = true;
+				ingrw.gameObject.SetActive(true);
 			}
 		}
 

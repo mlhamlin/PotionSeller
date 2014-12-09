@@ -64,7 +64,7 @@ public class RequestGenerator : UnitySingleton<RequestGenerator> {
         {
             Ingredient ing = IngredientGenerator.Instance.GenerateIngredient(Mathf.Max(Random.Range(difficulty*3+2, difficulty*4+2), 0));
             newReq.AddIngredient(ing);
-            ing.GetComponent<SnapDraggable>().enabled = false;
+            ing.GetComponent<SnapDraggable>().dragEnabled = false;
         }
 
 		int partOne = Random.Range(0, LoremBits.Length);

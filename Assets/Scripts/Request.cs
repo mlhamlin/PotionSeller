@@ -33,7 +33,7 @@ public class Request : MonoBehaviour {
         pinfo.addGold(goldReward);
         foreach (Ingredient reward in ingrewards)
         {
-            reward.GetComponent<BoxCollider2D>().enabled = true;
+            reward.GetComponent<SnapDraggable>().dragEnabled = true;
             shelf.PutInOpen(reward);
             reward.transform.position = new Vector2(10, 10);
         }
@@ -54,7 +54,8 @@ public class Request : MonoBehaviour {
             ingrewards[ingrewards.Length - 1] = ing;
             ing.GetComponent<SnapDraggable>().homeBox = ingboxes[ingrewards.Length - 1];
             ing.GetComponent<SnapDraggable>().GoHome();
-            ing.GetComponent<BoxCollider2D>().enabled = false;
+			ing.GetComponent<SnapDraggable>().dragEnabled = false;
+            //ing.GetComponent<BoxCollider2D>().enabled = false;
         }
     }
 }
