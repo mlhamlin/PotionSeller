@@ -15,6 +15,7 @@ public class PlayerInfo : UnitySingleton<PlayerInfo> {
 	public GameObject YouLoseDisplay;
 	public Text SurvivedText;
 	public bool gameOver;
+	public GameObject StorePagePanel;
 
 	// Use this for initialization
 	void Start () {
@@ -68,6 +69,7 @@ public class PlayerInfo : UnitySingleton<PlayerInfo> {
 			{
 				YouLose();
 			} else {
+				StorePagePanel.SetActive(true);
 				//TODO: Go to Shop.
 				Debug.Log("And now... the Shop!");
 			}
