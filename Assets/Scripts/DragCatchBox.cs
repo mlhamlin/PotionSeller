@@ -38,7 +38,7 @@ public class DragCatchBox : MonoBehaviour {
 		{
 			Ingredient dragIng = drag.GetComponent<Ingredient>();
 
-			if (!dragIng.Equals(allowed))
+			if (!dragIng.equivalentTo(allowed))
 			{
 				drag.GoHome();
 				return;

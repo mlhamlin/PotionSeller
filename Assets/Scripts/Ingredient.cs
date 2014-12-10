@@ -89,7 +89,7 @@ public class Ingredient : MonoBehaviour {
 
 	public void OnMouseEnter()
 	{
-		if (!Input.GetMouseButton (0)) 
+		if (!Input.GetMouseButton (0) && !PlayerInfo.Instance.gameOver) 
 		{
 			IngredientInfoBox.Instance.changeIngredient (this);
 			IngredientToolTip.Instance.activateTooltip(this);
@@ -100,12 +100,12 @@ public class Ingredient : MonoBehaviour {
 	{
 		if (!Input.GetMouseButton (0)) 
 		{
-			IngredientInfoBox.Instance.changeIngredient (this);
+			IngredientInfoBox.Instance.changeIngredient (null);
 			IngredientToolTip.Instance.deactivateToolTip();
 		}
 	}
 
-    public override bool Equals(object o2)
+    public bool equivalentTo(object o2)
     {
         Ingredient ing = o2 as Ingredient;
         return ing != null && totalatrb == ing.totalatrb

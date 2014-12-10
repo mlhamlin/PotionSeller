@@ -58,7 +58,7 @@ public class Cauldron : UnitySingleton<Cauldron> {
 	}
 
 	public void attemptRemoveIngredient(SnapDraggable drag)
-	{
+	{			
 		Ingredient ing = drag.GetComponent<Ingredient>();
 		if (ing != null)
 		{
@@ -68,7 +68,8 @@ public class Cauldron : UnitySingleton<Cauldron> {
 	
 	public bool removeIngredient(Ingredient ing)
 	{
-		if (ingredients.Contains (ing)) 
+
+		if (ing != null && ingredients.Contains (ing)) 
 		{
 			ingredients.Remove(ing);
 			allTheStats.removeValues(ing);
@@ -102,6 +103,8 @@ public class Cauldron : UnitySingleton<Cauldron> {
 		{
 			box.ForgetItAll();
 		}
+
+		PlayerInfo.Instance.turnPassed ();
 
 		UpdateUI ();
 	}

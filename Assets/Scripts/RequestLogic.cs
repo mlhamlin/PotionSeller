@@ -108,6 +108,7 @@ public class RequestLogic : UnitySingleton<RequestLogic> {
 				ingrw.gameObject.SetActive(true);
             }
         }
+		Cauldron.Instance.UpdateUI ();
 	}
 
 	//Wraps around
@@ -134,6 +135,7 @@ public class RequestLogic : UnitySingleton<RequestLogic> {
 				ingrw.gameObject.SetActive(true);
             }
         }
+		Cauldron.Instance.UpdateUI ();
 	}
 
 	//Clamps instead of wrapping.
@@ -162,6 +164,7 @@ public class RequestLogic : UnitySingleton<RequestLogic> {
 			}
 		}
 
+		Cauldron.Instance.UpdateUI ();
 		ToggleSelectionWindow ();
 	}
 

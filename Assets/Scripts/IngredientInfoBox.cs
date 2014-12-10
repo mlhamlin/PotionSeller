@@ -23,14 +23,12 @@ public class IngredientInfoBox : UnitySingleton<IngredientInfoBox> {
 
 	public void changeIngredient(Ingredient newIng)
 	{
-		if (current != newIng && newIng != null) 
+		if (current != newIng) 
 		{
 			current = newIng;
 			refresh();
 		}
 	}
-
-
 
 	public void refresh()
 	{

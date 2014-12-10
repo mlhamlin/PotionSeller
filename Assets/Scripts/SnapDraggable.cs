@@ -10,6 +10,7 @@ public class SnapDraggable : MonoBehaviour {
 	public const int DRAGGING_Z = -2;
 	public const int STATIONARY_Z = -1;
 	public bool dragEnabled = true;
+	public bool hasLeft;
 		
 	public void OnTriggerEnter2D(Collider2D other) {
 		DragCatchBox box = other.GetComponent<DragCatchBox>();
@@ -28,20 +29,21 @@ public class SnapDraggable : MonoBehaviour {
 	}
 		
 	public void OnMouseDrag() {
-		if (dragEnabled)
+		if (canBeDragged())
 		{
 			Vector3 cursorPosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 			cursorPosition.z = DRAGGING_Z;
 			gameObject.transform.position = cursorPosition;
-			if (current != null)
+			if (current != null && !hasLeft)
 			{
 				current.ByeNow(this);
+				hasLeft = true;
 			}
 		}
 	}
 		
 	public void OnMouseUp() {
-		if (dragEnabled)
+		if (canBeDragged())
 		{
 			if (boxes.Count > 0) {
 				Vector3 pos = gameObject.transform.position;
@@ -71,6 +73,7 @@ public class SnapDraggable : MonoBehaviour {
 	public void GoHome() {
         current = null;
 		homeBox.CatchMe(this);
+		hasLeft = false;
 	}
 
 	//Allows DragCatchBox to inform SnapDraggable which box ended up with it
@@ -79,5 +82,11 @@ public class SnapDraggable : MonoBehaviour {
         if (current != null)
             current.ReallyBye(this);
 		current = box;
+		hasLeft = false;
+	}
+
+	public bool canBeDragged()
+	{
+		return !PlayerInfo.Instance.gameOver && dragEnabled;
 	}
 }
