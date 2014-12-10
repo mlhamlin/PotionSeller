@@ -87,6 +87,7 @@ public class SnapDraggable : MonoBehaviour {
 
 	public bool canBeDragged()
 	{
-		return !PlayerInfo.Instance.gameOver && dragEnabled;
+		PlayerInfo pi = PlayerInfo.Instance;
+		return !pi.gameOver && !pi.storePageShowing && dragEnabled;
 	}
 }

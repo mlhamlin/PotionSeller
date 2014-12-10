@@ -89,7 +89,8 @@ public class Ingredient : MonoBehaviour {
 
 	public void OnMouseEnter()
 	{
-		if (!Input.GetMouseButton (0) && !PlayerInfo.Instance.gameOver) 
+		PlayerInfo pi = PlayerInfo.Instance;
+		if (!Input.GetMouseButton (0) && !pi.gameOver && !pi.storePageShowing) 
 		{
 			IngredientInfoBox.Instance.changeIngredient (this);
 			IngredientToolTip.Instance.activateTooltip(this);

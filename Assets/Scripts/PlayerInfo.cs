@@ -6,6 +6,7 @@ public class PlayerInfo : UnitySingleton<PlayerInfo> {
 
 	public int Gold;
 	public Text GoldText;
+	public Text GoldText2;
 	public const int TURNS_PER_DAY = 10;
 	public const int EXPENSES_PER_DAY = 1000;
 	public int turn;
@@ -16,10 +17,12 @@ public class PlayerInfo : UnitySingleton<PlayerInfo> {
 	public Text SurvivedText;
 	public bool gameOver;
 	public GameObject StorePagePanel;
+	public bool storePageShowing;
 
 	// Use this for initialization
 	void Start () {
 		updateUI();
+		storePageShowing = false;
 	}
 	
 	// Update is called once per frame
@@ -43,6 +46,7 @@ public class PlayerInfo : UnitySingleton<PlayerInfo> {
 		if (GoldText != null)
 		{
 			GoldText.text = getGoldText();
+			GoldText2.text = GoldText.text;
 		}
 
 		if (TurnNumbText != null)
@@ -70,6 +74,7 @@ public class PlayerInfo : UnitySingleton<PlayerInfo> {
 				YouLose();
 			} else {
 				StorePagePanel.SetActive(true);
+				storePageShowing = true;
 				//TODO: Go to Shop.
 				Debug.Log("And now... the Shop!");
 			}
@@ -88,5 +93,11 @@ public class PlayerInfo : UnitySingleton<PlayerInfo> {
 	public void Reset()
 	{
 		//TODO: Reset game?
+	}
+
+	public void LeaveStorePage()
+	{
+		StorePagePanel.SetActive(false);
+		storePageShowing = false;
 	}
 }
