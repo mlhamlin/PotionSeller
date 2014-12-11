@@ -80,7 +80,6 @@ public class Shelf : UnitySingleton<Shelf> {
         List<Ingredient> li = new List<Ingredient>();
         foreach (ShelfSpot ss in level1)
         {
-            print(ss.ingr);
             if (ss.ingr != null)
                 li.Add(ss.ingr);
         }

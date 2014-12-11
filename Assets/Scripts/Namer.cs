@@ -13,6 +13,7 @@ public class Namer : UnitySingleton<Namer> {
     List<List<string>> intnames;
     List<List<string>> dexnames;
     List<List<string>> chanames;
+    List<string> potionnames;
     List<string> leveltitles;
     public TextAsset data;
     
@@ -26,6 +27,7 @@ public class Namer : UnitySingleton<Namer> {
         chanames = new List<List<string>>();
         dexnames = new List<List<string>>();
         leveltitles = new List<string>();
+        potionnames = new List<string>();
         for (int i = 0; i < 5; i++)
         {
             basenames.Add(new List<string>());
@@ -34,6 +36,7 @@ public class Namer : UnitySingleton<Namer> {
             chanames.Add(new List<string>());
             dexnames.Add(new List<string>());
             leveltitles.Add("");
+            potionnames.Add("");
         }
         string[] lines = data.text.Split('\n');
         int state = 0;
@@ -44,6 +47,8 @@ public class Namer : UnitySingleton<Namer> {
             if (s.Contains(":"))
             {
                 if (s.Contains("INGREDIENT"))
+                    state = STATE_INGREDIENT;
+                if (s.Contains("POTION"))
                     state = STATE_INGREDIENT;
                 if (s.Contains("LEVEL"))
                 {
@@ -83,6 +88,17 @@ public class Namer : UnitySingleton<Namer> {
             else if (state == STATE_INGREDIENT)
             {
                 curatrb[level].Add(s);
+            }
+            else if (state == STATE_POTION)
+            {
+                if (curatrb == intnames)
+                    potionnames[0] = s;
+                if (curatrb == strnames)
+                    potionnames[1] = s;
+                if (curatrb == chanames)
+                    potionnames[2] = s;
+                if (curatrb == dexnames)
+                    potionnames[3] = s;
             }
         }
     }

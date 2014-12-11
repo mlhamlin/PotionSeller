@@ -20,7 +20,7 @@ public class RequestLogic : UnitySingleton<RequestLogic> {
 		requests = new List<Request>();
 		for(int i = 0; i < 3; i++)
 		{
-			requests.Add(RequestGenerator.Instance.GenerateRequest(1+i*2));
+			requests.Add(RequestGenerator.Instance.GenerateRequest(1+i));
 		}
         foreach (Ingredient ingrw in requests[1].ingrewards)
         {

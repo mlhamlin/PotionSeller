@@ -69,7 +69,17 @@ Panda's
 Cultist
 
 POTION:
+LEVEL:0
 Potion
 Elixer
 Mixture
 Dilution
+LEVEL:1
+ATTRIBUTE:STRENGTH
+Strength
+ATTRIBUTE:INTELLIGENCE
+Intelligence
+ATTRIBUTE:DEXTERITY
+Dexterity
+ATTRIBUTE:CHARISMA
+Charisma

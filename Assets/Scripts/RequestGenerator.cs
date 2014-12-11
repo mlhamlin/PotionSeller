@@ -15,11 +15,6 @@ public class RequestGenerator : UnitySingleton<RequestGenerator> {
 	void Start () {
 		GenerateLorem();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
 	private void GenerateLorem()
 	{
@@ -63,7 +58,6 @@ public class RequestGenerator : UnitySingleton<RequestGenerator> {
         {
             newReq = IncreaseRequirement(newReq, i, stats[i]);
             totalstats += stats[i];
-            print(i + " " + stats[i]);
         }
         if (Random.Range(1, 1) > 0)
         {
