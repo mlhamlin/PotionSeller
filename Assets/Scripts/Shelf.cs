@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Shelf : UnitySingleton<Shelf> {
 
@@ -72,5 +73,32 @@ public class Shelf : UnitySingleton<Shelf> {
         }
         if (hasSpace)
             box.InitBox(ingredient);
+    }
+
+    public List<Ingredient> GetIngredients()
+    {
+        List<Ingredient> li = new List<Ingredient>();
+        foreach (ShelfSpot ss in level1)
+        {
+            print(ss.ingr);
+            if (ss.ingr != null)
+                li.Add(ss.ingr);
+        }
+        foreach (ShelfSpot ss in level2)
+        {
+            if (ss.ingr != null)
+                li.Add(ss.ingr);
+        }
+        foreach (ShelfSpot ss in level3)
+        {
+            if (ss.ingr != null)
+                li.Add(ss.ingr);
+        }
+        foreach (ShelfSpot ss in level4)
+        {
+            if (ss.ingr != null)
+                li.Add(ss.ingr);
+        }
+        return li;
     }
 }

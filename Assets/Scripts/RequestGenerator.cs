@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class RequestGenerator : UnitySingleton<RequestGenerator> {
 
 	public GameObject baseRequest;
     public DragCatchBox[] boxes;
+    public Shelf shelf;
 
 	private const string LOREM = "Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum";
 	private string[] LoremBits;
@@ -35,37 +37,41 @@ public class RequestGenerator : UnitySingleton<RequestGenerator> {
 
 		Request newReq = ((GameObject)Instantiate(baseRequest)).GetComponent<Request>();
         newReq.ingboxes = boxes;
-		int totalStats = 1;
-		switch(difficulty)
-		{
-			case 0:
-				totalStats = Random.Range(2, 5);
-				break;
-			case 1:
-				totalStats = Random.Range(5, 10);
-				break;
-			case 2:
-				totalStats = Random.Range(10, 16);
-				break;
-			default:
-				break;
-		}
-
-		int factor = 3 - difficulty;
-		while (totalStats >= factor)
-		{
-			newReq = IncreaseRequirement(newReq, Random.Range(0, 4), factor);
-			totalStats -= factor;
-		}
-		newReq = IncreaseRequirement(newReq, Random.Range(0, 4), totalStats);
-
-		newReq.goldReward = 25 + (100 * difficulty) + Random.Range(0, 100);
+        List<Ingredient> ingredients = shelf.GetIngredients();
+        int totalstats = 0;
+        int[] stats = new int[] { 0, 0, 0, 0 };
+        if (ingredients.Count == 0)
+        {
+            for (int i = 0; i < difficulty; i++)
+            {
+                stats[Random.Range(0, 3)] += Random.Range(1, 3);
+            }
+        }
+        else
+        {
+            int ningredients = Random.Range(2, ingredients.Count - 4);
+            for (int i = 0; i < ningredients; i++)
+            {
+                Ingredient ingr = ingredients[Random.Range(0, ingredients.Count - 1)];
+                stats[0] += ingr.intl;
+                stats[1] += ingr.str;
+                stats[2] += ingr.cha;
+                stats[3] += ingr.dex;
+            }
+        }
+        for (int i = 0; i < 4; i++)
+        {
+            newReq = IncreaseRequirement(newReq, i, stats[i]);
+            totalstats += stats[i];
+            print(i + " " + stats[i]);
+        }
         if (Random.Range(1, 1) > 0)
         {
-            Ingredient ing = IngredientGenerator.Instance.GenerateIngredient(Mathf.Max(Random.Range(difficulty*3+2, difficulty*4+2), 0));
+            Ingredient ing = IngredientGenerator.Instance.GenerateIngredient(Mathf.Max(totalstats/2, 1));
             newReq.AddIngredient(ing);
             ing.GetComponent<SnapDraggable>().dragEnabled = false;
         }
+        newReq.goldReward = Mathf.Max(totalstats * 50 - newReq.ingrewards.Length * 75 + Random.Range(0, 100), 0);
 
 		int partOne = Random.Range(0, LoremBits.Length);
 		int partTwo = Random.Range(0, LoremBits.Length);

@@ -25,39 +25,48 @@ public class IngredientGenerator : UnitySingleton<IngredientGenerator> {
         Ingredient newIngredient = ((GameObject)Instantiate(baseIngredient)).GetComponent<Ingredient>();
         int primarystat = Random.Range(0, 4);
         int secondarystat = Random.Range(0, 4);
+        int[] stats = new int[] {0, 0, 0, 0};
         while (primarystat == secondarystat)
         {
             secondarystat = Random.Range(0, 4);
         }
-        int primevalue = 0;
-        int secondvalue = 0;
-        for (int i = 0; i < maxstats; i++ )
+        int i = 0;
+        while (i < maxstats)
         {
-            int selection = Random.Range(0, 10);
-            if (selection < 7)
+            int selection = Random.Range(0, 15);
+            if (selection < 5/maxstats)
             {
-                primevalue++;
+                stats[Random.Range(0, 3)]--;
+                i--;
+            }
+            else if (selection < 9)
+            {
+                stats[primarystat]++;
+                i++;
             }
             else
             {
-                secondvalue++;
+                stats[secondarystat]++;
+                i++;
             }
         }
         string name = "";
-        if (primevalue > 0)
+        if (stats[primarystat] > 0)
         {
-            name += namer.getStatName(primarystat, primevalue)+" ";
+            name += namer.getStatName(primarystat, stats[primarystat])+" ";
         }
-        if (secondvalue > 0)
+        if (stats[secondarystat] > 0)
         {
-            name += namer.getStatName(secondarystat, secondvalue)+" ";
+            name += namer.getStatName(secondarystat, stats[secondarystat])+" ";
         }
         int ingrtype = Random.Range(0, Mathf.Min(names.Count, sprites.Length));
         name += names[ingrtype];
         newIngredient.ingrname = name;
         newIngredient.GetComponent<SpriteRenderer>().sprite = sprites[ingrtype];
-        newIngredient.IncreaseStat(primarystat, primevalue);
-        newIngredient.IncreaseStat(secondarystat, secondvalue);
+        for (int j = 0; j < 4; j++)
+        {
+            newIngredient.IncreaseStat(j, stats[j]);
+        }
         newIngredient.ColorByStats();
         return newIngredient;
     }
