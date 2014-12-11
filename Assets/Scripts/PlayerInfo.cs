@@ -16,7 +16,7 @@ public class PlayerInfo : UnitySingleton<PlayerInfo> {
 	public GameObject YouLoseDisplay;
 	public Text SurvivedText;
 	public bool gameOver;
-	public GameObject StorePagePanel;
+	public StorePage StorePage;
 	public bool storePageShowing;
 
 	// Use this for initialization
@@ -73,7 +73,8 @@ public class PlayerInfo : UnitySingleton<PlayerInfo> {
 			{
 				YouLose();
 			} else {
-				StorePagePanel.SetActive(true);
+				StorePage.gameObject.SetActive(true);
+				StorePage.reStock();
 				storePageShowing = true;
 				//TODO: Go to Shop.
 				Debug.Log("And now... the Shop!");
@@ -97,7 +98,8 @@ public class PlayerInfo : UnitySingleton<PlayerInfo> {
 
 	public void LeaveStorePage()
 	{
-		StorePagePanel.SetActive(false);
+		StorePage.gameObject.SetActive(false);
+		StorePage.clearStock();
 		storePageShowing = false;
 	}
 }

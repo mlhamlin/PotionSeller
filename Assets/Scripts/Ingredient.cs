@@ -114,4 +114,8 @@ public class Ingredient : MonoBehaviour {
             && GetComponent<SpriteRenderer>().sprite ==
                ing.GetComponent<SpriteRenderer>().sprite;
     }
+	public void DetermineCost() {
+		//we should relate this somehow to the cauldron value (minus the random)
+		cost = (int)((intl + str + cha + dex) * 2 * Random.Range(0.75f, 1.25f));
+	}
 }

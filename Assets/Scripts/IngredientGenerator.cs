@@ -68,6 +68,7 @@ public class IngredientGenerator : UnitySingleton<IngredientGenerator> {
             newIngredient.IncreaseStat(j, stats[j]);
         }
         newIngredient.ColorByStats();
+		newIngredient.DetermineCost();
         return newIngredient;
     }
 }
