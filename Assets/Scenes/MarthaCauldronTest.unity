@@ -334,7 +334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingr: {fileID: 0}
-  nremainingtext: {fileID: 0}
+  nremainingtext: {fileID: 1306064690}
   itemcount: 10
 --- !u!212 &24609008
 SpriteRenderer:
@@ -1496,7 +1496,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingr: {fileID: 0}
-  nremainingtext: {fileID: 0}
+  nremainingtext: {fileID: 226713593}
   itemcount: 10
 --- !u!212 &272887617
 SpriteRenderer:
@@ -1666,7 +1666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingr: {fileID: 0}
-  nremainingtext: {fileID: 0}
+  nremainingtext: {fileID: 1510092515}
   itemcount: 10
 --- !u!212 &276522076
 SpriteRenderer:
@@ -1841,7 +1841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingr: {fileID: 0}
-  nremainingtext: {fileID: 0}
+  nremainingtext: {fileID: 662601239}
   itemcount: 10
 --- !u!212 &306598887
 SpriteRenderer:
@@ -1947,7 +1947,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingr: {fileID: 0}
-  nremainingtext: {fileID: 0}
+  nremainingtext: {fileID: 1612590951}
   itemcount: 10
 --- !u!212 &314760463
 SpriteRenderer:
@@ -2191,7 +2191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingr: {fileID: 0}
-  nremainingtext: {fileID: 0}
+  nremainingtext: {fileID: 430394575}
   itemcount: 10
 --- !u!212 &348584267
 SpriteRenderer:
@@ -2491,7 +2491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingr: {fileID: 0}
-  nremainingtext: {fileID: 0}
+  nremainingtext: {fileID: 461658496}
   itemcount: 10
 --- !u!212 &401681569
 SpriteRenderer:
@@ -3449,7 +3449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingr: {fileID: 0}
-  nremainingtext: {fileID: 0}
+  nremainingtext: {fileID: 336964653}
   itemcount: 10
 --- !u!212 &488257578
 SpriteRenderer:
@@ -4401,7 +4401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingr: {fileID: 0}
-  nremainingtext: {fileID: 0}
+  nremainingtext: {fileID: 1183021933}
   itemcount: 10
 --- !u!212 &620596189
 SpriteRenderer:
@@ -4507,7 +4507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingr: {fileID: 0}
-  nremainingtext: {fileID: 0}
+  nremainingtext: {fileID: 425417043}
   itemcount: 10
 --- !u!212 &625129846
 SpriteRenderer:
@@ -4815,7 +4815,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingr: {fileID: 0}
-  nremainingtext: {fileID: 0}
+  nremainingtext: {fileID: 2047272730}
   itemcount: 10
 --- !u!212 &678925323
 SpriteRenderer:
@@ -4983,7 +4983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingr: {fileID: 0}
-  nremainingtext: {fileID: 0}
+  nremainingtext: {fileID: 276630470}
   itemcount: 10
 --- !u!212 &693618470
 SpriteRenderer:
@@ -5390,7 +5390,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingr: {fileID: 0}
-  nremainingtext: {fileID: 0}
+  nremainingtext: {fileID: 1944951790}
   itemcount: 10
 --- !u!212 &727284904
 SpriteRenderer:
@@ -5781,7 +5781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingr: {fileID: 0}
-  nremainingtext: {fileID: 0}
+  nremainingtext: {fileID: 2122183569}
   itemcount: 10
 --- !u!212 &819869232
 SpriteRenderer:
@@ -6160,7 +6160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingr: {fileID: 0}
-  nremainingtext: {fileID: 0}
+  nremainingtext: {fileID: 1859851160}
   itemcount: 10
 --- !u!212 &854208248
 SpriteRenderer:
@@ -6560,7 +6560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingr: {fileID: 0}
-  nremainingtext: {fileID: 0}
+  nremainingtext: {fileID: 1139949259}
   itemcount: 10
 --- !u!212 &898491716
 SpriteRenderer:
@@ -6939,7 +6939,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingr: {fileID: 0}
-  nremainingtext: {fileID: 0}
+  nremainingtext: {fileID: 1363538797}
   itemcount: 10
 --- !u!212 &986435655
 SpriteRenderer:
@@ -7153,7 +7153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingr: {fileID: 0}
-  nremainingtext: {fileID: 0}
+  nremainingtext: {fileID: 844919283}
   itemcount: 10
 --- !u!212 &1044016514
 SpriteRenderer:
@@ -7259,7 +7259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingr: {fileID: 0}
-  nremainingtext: {fileID: 0}
+  nremainingtext: {fileID: 961354103}
   itemcount: 10
 --- !u!212 &1076944805
 SpriteRenderer:
@@ -7636,7 +7636,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingr: {fileID: 0}
-  nremainingtext: {fileID: 0}
+  nremainingtext: {fileID: 1155410564}
   itemcount: 10
 --- !u!212 &1158792753
 SpriteRenderer:
@@ -7961,7 +7961,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingr: {fileID: 0}
-  nremainingtext: {fileID: 0}
+  nremainingtext: {fileID: 439511447}
   itemcount: 10
 --- !u!212 &1191417932
 SpriteRenderer:
@@ -8220,7 +8220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingr: {fileID: 0}
-  nremainingtext: {fileID: 0}
+  nremainingtext: {fileID: 511615305}
   itemcount: 10
 --- !u!212 &1240885565
 SpriteRenderer:
@@ -9130,7 +9130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingr: {fileID: 0}
-  nremainingtext: {fileID: 0}
+  nremainingtext: {fileID: 979451690}
   itemcount: 10
 --- !u!212 &1341447410
 SpriteRenderer:
@@ -9543,7 +9543,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
 --- !u!1 &1419186186
 GameObject:
   m_ObjectHideFlags: 0
@@ -9846,7 +9846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingr: {fileID: 0}
-  nremainingtext: {fileID: 0}
+  nremainingtext: {fileID: 752972333}
   itemcount: 10
 --- !u!212 &1475806202
 SpriteRenderer:
@@ -10025,7 +10025,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingr: {fileID: 0}
-  nremainingtext: {fileID: 0}
+  nremainingtext: {fileID: 322754017}
   itemcount: 10
 --- !u!212 &1495878095
 SpriteRenderer:
@@ -10852,7 +10852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingr: {fileID: 0}
-  nremainingtext: {fileID: 0}
+  nremainingtext: {fileID: 1938145268}
   itemcount: 10
 --- !u!212 &1612478858
 SpriteRenderer:
@@ -11165,7 +11165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingr: {fileID: 0}
-  nremainingtext: {fileID: 0}
+  nremainingtext: {fileID: 634184053}
   itemcount: 10
 --- !u!212 &1624563285
 SpriteRenderer:
@@ -11472,7 +11472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingr: {fileID: 0}
-  nremainingtext: {fileID: 0}
+  nremainingtext: {fileID: 2144933392}
   itemcount: 10
 --- !u!212 &1640818637
 SpriteRenderer:
@@ -11578,7 +11578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingr: {fileID: 0}
-  nremainingtext: {fileID: 0}
+  nremainingtext: {fileID: 611390529}
   itemcount: 10
 --- !u!212 &1720773982
 SpriteRenderer:
@@ -11684,7 +11684,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingr: {fileID: 0}
-  nremainingtext: {fileID: 0}
+  nremainingtext: {fileID: 823125528}
   itemcount: 10
 --- !u!212 &1734290698
 SpriteRenderer:
@@ -12114,6 +12114,134 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 2135492690}
+    - target: {fileID: 11400060, guid: 5847b302e1ebfcb48bea068a7ff309ee, type: 2}
+      propertyPath: nremainingtext
+      value: 
+      objectReference: {fileID: 439511447}
+    - target: {fileID: 11400146, guid: 5847b302e1ebfcb48bea068a7ff309ee, type: 2}
+      propertyPath: nremainingtext
+      value: 
+      objectReference: {fileID: 276630470}
+    - target: {fileID: 11400112, guid: 5847b302e1ebfcb48bea068a7ff309ee, type: 2}
+      propertyPath: nremainingtext
+      value: 
+      objectReference: {fileID: 823125528}
+    - target: {fileID: 11400102, guid: 5847b302e1ebfcb48bea068a7ff309ee, type: 2}
+      propertyPath: nremainingtext
+      value: 
+      objectReference: {fileID: 1306064690}
+    - target: {fileID: 11400046, guid: 5847b302e1ebfcb48bea068a7ff309ee, type: 2}
+      propertyPath: nremainingtext
+      value: 
+      objectReference: {fileID: 1363538797}
+    - target: {fileID: 11400084, guid: 5847b302e1ebfcb48bea068a7ff309ee, type: 2}
+      propertyPath: nremainingtext
+      value: 
+      objectReference: {fileID: 611390529}
+    - target: {fileID: 11400096, guid: 5847b302e1ebfcb48bea068a7ff309ee, type: 2}
+      propertyPath: nremainingtext
+      value: 
+      objectReference: {fileID: 322754017}
+    - target: {fileID: 11400070, guid: 5847b302e1ebfcb48bea068a7ff309ee, type: 2}
+      propertyPath: nremainingtext
+      value: 
+      objectReference: {fileID: 1938145268}
+    - target: {fileID: 11400024, guid: 5847b302e1ebfcb48bea068a7ff309ee, type: 2}
+      propertyPath: nremainingtext
+      value: 
+      objectReference: {fileID: 1612590951}
+    - target: {fileID: 11400174, guid: 5847b302e1ebfcb48bea068a7ff309ee, type: 2}
+      propertyPath: nremainingtext
+      value: 
+      objectReference: {fileID: 844919283}
+    - target: {fileID: 11400012, guid: 5847b302e1ebfcb48bea068a7ff309ee, type: 2}
+      propertyPath: nremainingtext
+      value: 
+      objectReference: {fileID: 1139949259}
+    - target: {fileID: 11400074, guid: 5847b302e1ebfcb48bea068a7ff309ee, type: 2}
+      propertyPath: nremainingtext
+      value: 
+      objectReference: {fileID: 425417043}
+    - target: {fileID: 11400158, guid: 5847b302e1ebfcb48bea068a7ff309ee, type: 2}
+      propertyPath: nremainingtext
+      value: 
+      objectReference: {fileID: 2122183569}
+    - target: {fileID: 11400166, guid: 5847b302e1ebfcb48bea068a7ff309ee, type: 2}
+      propertyPath: nremainingtext
+      value: 
+      objectReference: {fileID: 662601239}
+    - target: {fileID: 11400120, guid: 5847b302e1ebfcb48bea068a7ff309ee, type: 2}
+      propertyPath: nremainingtext
+      value: 
+      objectReference: {fileID: 752972333}
+    - target: {fileID: 11400178, guid: 5847b302e1ebfcb48bea068a7ff309ee, type: 2}
+      propertyPath: nremainingtext
+      value: 
+      objectReference: {fileID: 1944951790}
+    - target: {fileID: 11400200, guid: 5847b302e1ebfcb48bea068a7ff309ee, type: 2}
+      propertyPath: nremainingtext
+      value: 
+      objectReference: {fileID: 1155410564}
+    - target: {fileID: 11400050, guid: 5847b302e1ebfcb48bea068a7ff309ee, type: 2}
+      propertyPath: nremainingtext
+      value: 
+      objectReference: {fileID: 1183021933}
+    - target: {fileID: 11400054, guid: 5847b302e1ebfcb48bea068a7ff309ee, type: 2}
+      propertyPath: nremainingtext
+      value: 
+      objectReference: {fileID: 461658496}
+    - target: {fileID: 11400034, guid: 5847b302e1ebfcb48bea068a7ff309ee, type: 2}
+      propertyPath: nremainingtext
+      value: 
+      objectReference: {fileID: 2047272730}
+    - target: {fileID: 11400006, guid: 5847b302e1ebfcb48bea068a7ff309ee, type: 2}
+      propertyPath: nremainingtext
+      value: 
+      objectReference: {fileID: 979451690}
+    - target: {fileID: 11400064, guid: 5847b302e1ebfcb48bea068a7ff309ee, type: 2}
+      propertyPath: nremainingtext
+      value: 
+      objectReference: {fileID: 961354103}
+    - target: {fileID: 11400136, guid: 5847b302e1ebfcb48bea068a7ff309ee, type: 2}
+      propertyPath: nremainingtext
+      value: 
+      objectReference: {fileID: 634184053}
+    - target: {fileID: 11400124, guid: 5847b302e1ebfcb48bea068a7ff309ee, type: 2}
+      propertyPath: nremainingtext
+      value: 
+      objectReference: {fileID: 2144933392}
+    - target: {fileID: 11400028, guid: 5847b302e1ebfcb48bea068a7ff309ee, type: 2}
+      propertyPath: nremainingtext
+      value: 
+      objectReference: {fileID: 226713593}
+    - target: {fileID: 11400152, guid: 5847b302e1ebfcb48bea068a7ff309ee, type: 2}
+      propertyPath: nremainingtext
+      value: 
+      objectReference: {fileID: 511615305}
+    - target: {fileID: 11400190, guid: 5847b302e1ebfcb48bea068a7ff309ee, type: 2}
+      propertyPath: nremainingtext
+      value: 
+      objectReference: {fileID: 430394575}
+    - target: {fileID: 11400080, guid: 5847b302e1ebfcb48bea068a7ff309ee, type: 2}
+      propertyPath: nremainingtext
+      value: 
+      objectReference: {fileID: 336964653}
+    - target: {fileID: 11400020, guid: 5847b302e1ebfcb48bea068a7ff309ee, type: 2}
+      propertyPath: nremainingtext
+      value: 
+      objectReference: {fileID: 1859851160}
+    - target: {fileID: 11400140, guid: 5847b302e1ebfcb48bea068a7ff309ee, type: 2}
+      propertyPath: nremainingtext
+      value: 
+      objectReference: {fileID: 1978791169}
+    - target: {fileID: 11400132, guid: 5847b302e1ebfcb48bea068a7ff309ee, type: 2}
+      propertyPath: nremainingtext
+      value: 
+      objectReference: {fileID: 1635534616}
+    - target: {fileID: 11400038, guid: 5847b302e1ebfcb48bea068a7ff309ee, type: 2}
+      propertyPath: nremainingtext
+      value: 
+      objectReference: {fileID: 1510092515}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5847b302e1ebfcb48bea068a7ff309ee, type: 2}
   m_RootGameObject: {fileID: 1543599183}
@@ -12479,7 +12607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingr: {fileID: 0}
-  nremainingtext: {fileID: 0}
+  nremainingtext: {fileID: 1978791169}
   itemcount: 10
 --- !u!212 &1881275700
 SpriteRenderer:
@@ -12938,7 +13066,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingr: {fileID: 0}
-  nremainingtext: {fileID: 0}
+  nremainingtext: {fileID: 1635534616}
   itemcount: 10
 --- !u!212 &1941656467
 SpriteRenderer:
@@ -13539,7 +13667,7 @@ MonoBehaviour:
   - {fileID: 968521912}
   - {fileID: 241141711}
   - {fileID: 1225502883}
-  shelf: {fileID: 0}
+  shelf: {fileID: 1543599185}
 --- !u!1 &2095995396
 GameObject:
   m_ObjectHideFlags: 0
