@@ -44,8 +44,7 @@ public class RequestGenerator : UnitySingleton<RequestGenerator> {
         }
         else
         {
-            int ningredients = Random.Range(2, ingredients.Count - 4);
-            for (int i = 0; i < ningredients; i++)
+            for (int i = 0; i < difficulty; i++)
             {
                 Ingredient ingr = ingredients[Random.Range(0, ingredients.Count - 1)];
                 stats[0] += ingr.intl;
@@ -54,22 +53,28 @@ public class RequestGenerator : UnitySingleton<RequestGenerator> {
                 stats[3] += ingr.dex;
             }
         }
+        int maxatrb = 0;
+        int maxamt = 0;
         for (int i = 0; i < 4; i++)
         {
             newReq = IncreaseRequirement(newReq, i, stats[i]);
             totalstats += stats[i];
+            if (stats[i] > maxamt)
+            {
+                maxatrb = i;
+                maxamt = stats[i];
+            }
         }
-        if (Random.Range(1, 1) > 0)
+        int ningredients = Random.Range(0, difficulty) / 3;
+        for (int i = 0; i < ningredients; i++)
         {
             Ingredient ing = IngredientGenerator.Instance.GenerateIngredient(Mathf.Max(totalstats/2, 1));
             newReq.AddIngredient(ing);
             ing.GetComponent<SnapDraggable>().dragEnabled = false;
-        }
+        }   
         newReq.goldReward = Mathf.Max(totalstats * 50 - newReq.ingrewards.Length * 75 + Random.Range(0, 100), 0);
 
-		int partOne = Random.Range(0, LoremBits.Length);
-		int partTwo = Random.Range(0, LoremBits.Length);
-		newReq.reqname = LoremBits[partOne] + " " + LoremBits[partTwo];
+		newReq.reqname = Namer.Instance.getPotionName(maxatrb, totalstats);
 
 		newReq.difficulty = difficulty;
 

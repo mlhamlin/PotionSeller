@@ -67,7 +67,6 @@ Lightspeed
 CHARISMA:
 Panda's
 Cultist
-
 POTION:
 LEVEL:0
 Potion

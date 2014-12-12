@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 public class Namer : UnitySingleton<Namer> {
     const int STATE_INGREDIENT = 0;
-    const int STATE_POTION = 0;
+    const int STATE_POTION = 1;
 
     List<List<string>> basenames;
     List<List<string>> strnames;
@@ -49,7 +49,11 @@ public class Namer : UnitySingleton<Namer> {
                 if (s.Contains("INGREDIENT"))
                     state = STATE_INGREDIENT;
                 if (s.Contains("POTION"))
-                    state = STATE_INGREDIENT;
+                {
+                    print(s);
+                    state = STATE_POTION;
+                    print(state);
+                }
                 if (s.Contains("LEVEL"))
                 {
 					string temp = s.TrimEnd('\r', '\n', ' ');
@@ -91,6 +95,7 @@ public class Namer : UnitySingleton<Namer> {
             }
             else if (state == STATE_POTION)
             {
+                print(s);
                 if (curatrb == intnames)
                     potionnames[0] = s;
                 if (curatrb == strnames)
@@ -128,5 +133,18 @@ public class Namer : UnitySingleton<Namer> {
     public string getLevelName(int level)
     {
         return leveltitles[level];
+    }
+
+    public string getPotionName(int attrib, int totalstats)
+    {
+        string attrbnm = potionnames[attrib];
+        string lvlname = "";
+        if (totalstats < 8)
+            lvlname = "mixture";
+        if (totalstats < 16)
+            lvlname = "potion";
+        else
+            lvlname = "elixer";
+        return attrbnm + " " + lvlname;
     }
 }

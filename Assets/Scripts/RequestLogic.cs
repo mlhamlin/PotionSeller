@@ -37,6 +37,24 @@ public class RequestLogic : UnitySingleton<RequestLogic> {
 
 		currentReq = 0;
 	}
+
+    public void GenerateAllNewRequests()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            requests[i] = RequestGenerator.Instance.GenerateRequest(1 + i);
+        }
+        foreach (Ingredient ingrw in requests[currentReq+1%3].ingrewards)
+        {
+            ingrw.GetComponent<SpriteRenderer>().enabled = false;
+            ingrw.gameObject.SetActive(false);
+        }
+        foreach (Ingredient ingrw in requests[currentReq + 2 % 3].ingrewards)
+        {
+            ingrw.GetComponent<SpriteRenderer>().enabled = false;
+            ingrw.gameObject.SetActive(false);
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () 

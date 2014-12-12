@@ -28,6 +28,10 @@ public class Shelf : UnitySingleton<Shelf> {
             Ingredient ingr = IngredientGenerator.Instance.GenerateIngredient(ingramt);
             sbox.InitBox(ingr);
             genpoints[0]++;
+            if (genpoints[0] == 8)
+            {
+                RequestLogic.Instance.GenerateAllNewRequests();
+            }
         }
 	}
 
