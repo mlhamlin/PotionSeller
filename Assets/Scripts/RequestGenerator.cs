@@ -53,6 +53,7 @@ public class RequestGenerator : UnitySingleton<RequestGenerator> {
                 stats[3] += ingr.dex;
             }
         }
+        JitterStats(stats);
         int maxatrb = 0;
         int maxamt = 0;
         for (int i = 0; i < 4; i++)
@@ -86,13 +87,13 @@ public class RequestGenerator : UnitySingleton<RequestGenerator> {
 		switch (stat)
 		{
 			case 0:
-				req.strlevel += amt;
+				req.intlevel += amt;
 				break;
 			case 1:
-				req.chalevel += amt;
+				req.strlevel += amt;
 				break;
 			case 2:
-				req.intlevel += amt;
+				req.chalevel += amt;
 				break;
 			case 3:
 				req.dexlevel += amt;
@@ -101,5 +102,16 @@ public class RequestGenerator : UnitySingleton<RequestGenerator> {
 
 		return req;
 	}
+
+    void JitterStats(int[] stats)
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if (stats[i] < 0)
+                stats[i] = 0;
+            else
+                stats[i] += (Random.Range(0, 2) - 1);
+        }
+    }
 
 }

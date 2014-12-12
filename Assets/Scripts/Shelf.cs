@@ -84,22 +84,22 @@ public class Shelf : UnitySingleton<Shelf> {
         List<Ingredient> li = new List<Ingredient>();
         foreach (ShelfSpot ss in level1)
         {
-            if (ss.ingr != null)
+            if (ss.ingr != null && ss.itemcount > 0)
                 li.Add(ss.ingr);
         }
         foreach (ShelfSpot ss in level2)
         {
-            if (ss.ingr != null)
+            if (ss.ingr != null && ss.itemcount > 0)
                 li.Add(ss.ingr);
         }
         foreach (ShelfSpot ss in level3)
         {
-            if (ss.ingr != null)
+            if (ss.ingr != null && ss.itemcount > 0)
                 li.Add(ss.ingr);
         }
         foreach (ShelfSpot ss in level4)
         {
-            if (ss.ingr != null)
+            if (ss.ingr != null && ss.itemcount > 0)
                 li.Add(ss.ingr);
         }
         return li;

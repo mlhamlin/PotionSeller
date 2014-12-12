@@ -92,7 +92,7 @@ public class RequestLogic : UnitySingleton<RequestLogic> {
     public void ReplaceCurrentRequest()
     {
 		Request holder = requests [currentReq];
-        requests[currentReq] = RequestGenerator.Instance.GenerateRequest(holder.difficulty);
+        requests[currentReq] = RequestGenerator.Instance.GenerateRequest(Random.Range(PlayerInfo.Instance.day, PlayerInfo.Instance.day+2));
 		GameObject.Destroy(holder.gameObject);
         numbergenerated++;
     }
