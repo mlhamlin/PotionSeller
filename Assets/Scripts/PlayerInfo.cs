@@ -7,8 +7,8 @@ public class PlayerInfo : UnitySingleton<PlayerInfo> {
 	public int Gold;
 	public Text GoldText;
 	public Text GoldText2;
-	public const int TURNS_PER_DAY = 10;
-	public const int EXPENSES_PER_DAY = 1000;
+	public const int TURNS_PER_DAY = 10/10;
+	public const int EXPENSES_PER_DAY = 1000/1000;
 	public int turn;
 	public Text TurnNumbText;
 	public int day;
@@ -16,8 +16,9 @@ public class PlayerInfo : UnitySingleton<PlayerInfo> {
 	public GameObject YouLoseDisplay;
 	public Text SurvivedText;
 	public bool gameOver;
-	public StorePage StorePage;
+	public GameObject StorePagePanel;
 	public bool storePageShowing;
+	public Text CostText;
 
 	// Use this for initialization
 	void Start () {
@@ -73,8 +74,7 @@ public class PlayerInfo : UnitySingleton<PlayerInfo> {
 			{
 				YouLose();
 			} else {
-				StorePage.gameObject.SetActive(true);
-				StorePage.reStock();
+				StorePagePanel.SetActive(true);
 				storePageShowing = true;
 				//TODO: Go to Shop.
 				Debug.Log("And now... the Shop!");
@@ -96,10 +96,25 @@ public class PlayerInfo : UnitySingleton<PlayerInfo> {
 		//TODO: Reset game?
 	}
 
+	public void buyIngredient() {
+		Ingredient ing = IngredientInfoBox.Instance.current;
+		if (ing != null && ing.cost <= Gold) {
+			//there really ought to be an easier way to tell which spot an ingredient is in
+			ShelfSpot ss = ing.GetComponent<SnapDraggable>().current.GetComponent<ShelfSpot>();
+			if (ss != null) {
+				Gold -= ing.cost;
+				ss.itemcount += 1;
+				updateUI();
+				ss.nremainingtext.text = ss.itemcount.ToString();
+			}
+		}
+	}
+
 	public void LeaveStorePage()
 	{
-		StorePage.gameObject.SetActive(false);
-		StorePage.clearStock();
+		IngredientInfoBox.Instance.changeIngredient (null);
+		StorePagePanel.SetActive(false);
+		CostText.gameObject.SetActive(false);
 		storePageShowing = false;
 	}
 }
