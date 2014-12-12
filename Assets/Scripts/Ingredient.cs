@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Ingredient : MonoBehaviour {
@@ -90,9 +91,10 @@ public class Ingredient : MonoBehaviour {
 	public void OnMouseEnter()
 	{
 		PlayerInfo pi = PlayerInfo.Instance;
-		if (!Input.GetMouseButton (0) && !pi.gameOver && !pi.storePageShowing) 
+		if (!Input.GetMouseButton (0) && !pi.gameOver)
 		{
-			IngredientInfoBox.Instance.changeIngredient (this);
+			if (!pi.storePageShowing)
+				IngredientInfoBox.Instance.changeIngredient (this);
 			IngredientToolTip.Instance.activateTooltip(this);
 		}
 	}
@@ -101,8 +103,18 @@ public class Ingredient : MonoBehaviour {
 	{
 		if (!Input.GetMouseButton (0)) 
 		{
-			IngredientInfoBox.Instance.changeIngredient (null);
+			if (!PlayerInfo.Instance.storePageShowing)
+				IngredientInfoBox.Instance.changeIngredient (null);
 			IngredientToolTip.Instance.deactivateToolTip();
+		}
+	}
+
+	public void OnMouseDown() {
+		if (PlayerInfo.Instance.storePageShowing) {
+			IngredientInfoBox.Instance.changeIngredient (this);
+			Text ct = PlayerInfo.Instance.CostText;
+			ct.text = "Cost: " + cost;
+			ct.gameObject.SetActive(true);
 		}
 	}
 
